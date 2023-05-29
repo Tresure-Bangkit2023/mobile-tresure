@@ -25,7 +25,7 @@ class HomeFragment : Fragment() {
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        val textView: TextView = binding.textHome
+        val textView: TextView = binding.tvLagiViral
         homeViewModel.text.observe(viewLifecycleOwner) {
             textView.text = it
         }

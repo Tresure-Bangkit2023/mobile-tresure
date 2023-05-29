@@ -7,6 +7,9 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.Navigation
+import androidx.recyclerview.widget.RecyclerView
+import id.tresure.android.R
 import id.tresure.android.databinding.FragmentPlanBinding
 
 class PlanFragment : Fragment() {
@@ -25,11 +28,16 @@ class PlanFragment : Fragment() {
         _binding = FragmentPlanBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        val textView: TextView = binding.textDashboard
-        planViewModel.text.observe(viewLifecycleOwner) {
-            textView.text = it
-        }
+        val recyclerView: RecyclerView = binding.rvMyPlan
         return root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        binding.fabCreate.setOnClickListener(
+            Navigation.createNavigateOnClickListener(R.id.action_navigation_plan_to_createPlanActivity)
+        )
     }
 
     override fun onDestroyView() {
