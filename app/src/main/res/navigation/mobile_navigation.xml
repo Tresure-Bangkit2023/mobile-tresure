@@ -15,11 +15,29 @@
         android:id="@+id/navigation_plan"
         android:name="id.tresure.android.ui.plan.PlanFragment"
         android:label="@string/title_plan"
-        tools:layout="@layout/fragment_plan" />
+        tools:layout="@layout/fragment_plan" >
+        <action
+            android:id="@+id/action_navigation_plan_to_createPlanActivity"
+            app:destination="@id/createPlanActivity" />
+        <action
+            android:id="@+id/action_navigation_plan_to_detailPlanActivity"
+            app:destination="@id/detailPlanActivity" />
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_profile"
         android:name="id.tresure.android.ui.profile.ProfileFragment"
         android:label="@string/title_profile"
         tools:layout="@layout/fragment_profile" />
+
+    <activity
+        android:id="@+id/createPlanActivity"
+        android:name="id.tresure.android.ui.createplan.CreatePlanActivity"
+        android:label="activity_create_plan"
+        tools:layout="@layout/activity_create_plan" />
+    <activity
+        android:id="@+id/detailPlanActivity"
+        android:name="id.tresure.android.ui.detailplan.DetailPlanActivity"
+        android:label="activity_detail_plan"
+        tools:layout="@layout/activity_detail_plan" />
 </navigation>
