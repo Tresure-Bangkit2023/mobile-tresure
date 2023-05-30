@@ -1,11 +1,9 @@
 package id.tresure.android.ui.createplan
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityOptionsCompat
-import androidx.recyclerview.widget.LinearLayoutManager
-import id.tresure.android.R
 import id.tresure.android.databinding.ActivityCreatePlanBinding
 import id.tresure.android.ui.detailplan.DetailPlanActivity
 
@@ -27,7 +25,8 @@ class CreatePlanActivity : AppCompatActivity() {
                 val intent = Intent(this@CreatePlanActivity, DetailPlanActivity::class.java)
                 startActivity(
                     intent,
-                    ActivityOptionsCompat.makeSceneTransitionAnimation(this@CreatePlanActivity).toBundle()
+                    ActivityOptionsCompat.makeSceneTransitionAnimation(this@CreatePlanActivity)
+                        .toBundle()
                 )
             }
         }

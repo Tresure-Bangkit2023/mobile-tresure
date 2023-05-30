@@ -12,7 +12,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="Anggaran : "
+        android:text="@string/sisa_anggaran"
         android:textSize="12sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@id/rv_detail_plan"
@@ -24,12 +24,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="Rp1.000.000"
         android:textSize="12sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@id/tv_anggaran"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Rp1.000.000" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_detail_plan"
@@ -46,7 +46,7 @@
         android:layout_width="160dp"
         android:layout_height="40dp"
         android:layout_marginVertical="16dp"
-        android:text="Edit Rencana"
+        android:text="@string/edit_rencana"
         android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
