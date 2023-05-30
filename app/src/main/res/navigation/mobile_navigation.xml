@@ -15,7 +15,7 @@
         android:id="@+id/navigation_plan"
         android:name="id.tresure.android.ui.plan.PlanFragment"
         android:label="@string/title_plan"
-        tools:layout="@layout/fragment_plan" >
+        tools:layout="@layout/fragment_plan">
         <action
             android:id="@+id/action_navigation_plan_to_createPlanActivity"
             app:destination="@id/createPlanActivity" />

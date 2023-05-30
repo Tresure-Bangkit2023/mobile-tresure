@@ -1,7 +1,7 @@
 package id.tresure.android.ui.detailplan
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import id.tresure.android.R
 
 class DetailPlanActivity : AppCompatActivity() {

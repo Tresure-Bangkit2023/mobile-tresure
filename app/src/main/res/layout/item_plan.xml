@@ -18,7 +18,7 @@
             android:id="@+id/iv_plan"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:contentDescription="Plan Image"
+            android:contentDescription="@string/plan_image"
             android:scaleType="centerCrop"
             android:src="@mipmap/ic_launcher_round" />
 
@@ -29,7 +29,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="16dp"
-        android:text="Name"
+        android:text="@string/nama"
         android:textSize="14sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@id/tv_price"
@@ -42,7 +42,7 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="16dp"
         android:layout_marginVertical="4dp"
-        android:text="Rp100.000"
+        android:text="@string/rp100_000"
         android:textSize="12sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@id/tv_description"
@@ -55,7 +55,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
-        android:text="/orang"
+        android:text="@string/orang"
         android:textSize="10sp"
         app:layout_constraintBottom_toBottomOf="@id/tv_price"
         app:layout_constraintStart_toEndOf="@id/tv_price" />
@@ -66,7 +66,7 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="16dp"
         android:layout_marginTop="8dp"
-        android:text="Description"
+        android:text="@string/deskripsi"
         android:textSize="8sp"
         app:layout_constraintStart_toEndOf="@id/cv_plan"
         app:layout_constraintTop_toBottomOf="@id/tv_price" />
