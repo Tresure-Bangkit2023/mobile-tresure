@@ -29,4 +29,12 @@
     <string name="plan_image">Plan Image</string>
     <string name="_20_00">20.00</string>
     <string name="mobil">Mobil</string>
+    <string name="nama_pengguna">Nama Pengguna</string>
+    <string name="masuk">Masuk</string>
+    <string name="belum_punya_akun">Belum punya akun?</string>
+    <string name="daftar">Daftar</string>
+    <string name="email">Email</string>
+    <string name="nama_lengkap">Nama Lengkap</string>
+    <string name="konfirmasi_kata_sandi">Konfirmasi Kata Sandi</string>
+    <string name="kata_sandi">Kata Sandi</string>
 </resources>

@@ -8,8 +8,9 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 
-    <color name="yellow">#F2E057</color>
-    <color name="dark_yellow">#DFC46A</color>
-    <color name="navy">#000748</color>
+    <color name="colorPrimary">#F2BD1D</color>
+    <color name="mainTextColor">#232524</color>
+    <color name="textThinColor">#33545454</color>
+    <color name="warningColor">#FF3D00</color>
 
 </resources>

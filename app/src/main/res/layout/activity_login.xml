@@ -7,28 +7,112 @@
     android:layout_marginHorizontal="16dp"
     tools:context=".ui.login.LoginActivity">
 
-    <Button
-        android:id="@+id/btn_login"
+    <ImageView
+        android:id="@+id/iv_logo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:text="@string/login"
-        android:textSize="16sp"
-        app:layout_constraintBottom_toTopOf="@id/btn_register"
+        android:layout_marginTop="48dp"
+        android:src="@drawable/logo"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <TextView
+        android:id="@+id/tv_username"
+        android:layout_width="match_parent"
+        android:layout_height="24dp"
+        android:layout_marginTop="72dp"
+        android:gravity="center_vertical"
+        android:text="@string/nama_pengguna"
+        android:textSize="14sp"
+        android:textColor="@color/mainTextColor"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/iv_logo" />
+
+    <EditText
+        android:id="@+id/et_username"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:text="@string/nama_pengguna"
+        android:textSize="14sp"
+        android:textColor="@color/textThinColor"
+        android:gravity="center_vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_username" />
+
+    <TextView
+        android:id="@+id/tv_password"
+        android:layout_width="match_parent"
+        android:layout_height="24dp"
+        android:layout_marginTop="24dp"
+        android:gravity="center_vertical"
+        android:text="@string/kata_sandi"
+        android:textSize="14sp"
+        android:textColor="@color/mainTextColor"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/et_username" />
+
+    <EditText
+        android:id="@+id/et_password"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:text="@string/kata_sandi"
+        android:textSize="14sp"
+        android:textColor="@color/textThinColor"
+        android:inputType="textPassword"
+        android:gravity="center_vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_password" />
+
     <Button
-        android:id="@+id/btn_register"
+        android:id="@+id/btn_login"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginTop="48dp"
+        android:text="@string/masuk"
+        android:textSize="14sp"
+        android:backgroundTint="@color/colorPrimary"
+        android:textColor="@color/mainTextColor"
+        app:circularflow_radiusInDP="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/et_password" />
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="@string/register"
-        android:textSize="16sp"
+        android:layout_marginBottom="6dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/btn_login" />
+        android:gravity="center"
+        tools:ignore="MissingConstraints">
+
+        <TextView
+            android:id="@+id/tv_belum_punya_akun"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingVertical="10dp"
+            android:paddingHorizontal="2dp"
+            android:text="@string/belum_punya_akun"
+            android:textSize="12sp"
+            android:textColor="@color/mainTextColor" />
+
+        <TextView
+            android:id="@+id/tv_daftar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:focusable="true"
+            android:paddingVertical="10dp"
+            android:paddingHorizontal="2dp"
+            android:text="@string/daftar"
+            android:textSize="12sp"
+            android:textColor="@color/colorPrimary" />
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
