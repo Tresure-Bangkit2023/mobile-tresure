@@ -24,8 +24,8 @@
         android:layout_marginTop="24dp"
         android:gravity="center_vertical"
         android:text="@string/email"
-        android:textSize="14sp"
         android:textColor="@color/mainTextColor"
+        android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/iv_logo" />
@@ -34,11 +34,12 @@
         android:id="@+id/et_email"
         android:layout_width="match_parent"
         android:layout_height="48dp"
-        android:text="@string/email"
-        android:textSize="14sp"
-        android:textColor="@color/textThinColor"
         android:gravity="center_vertical"
+        android:hint="@string/email"
         android:inputType="textEmailAddress"
+        android:textColor="@color/textThinColor"
+        android:textColorHint="textThinColor"
+        android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_email" />
@@ -50,8 +51,8 @@
         android:layout_marginTop="16dp"
         android:gravity="center_vertical"
         android:text="@string/nama_lengkap"
-        android:textSize="14sp"
         android:textColor="@color/mainTextColor"
+        android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/et_email" />
@@ -60,10 +61,11 @@
         android:id="@+id/et_fullname"
         android:layout_width="match_parent"
         android:layout_height="48dp"
-        android:text="@string/nama_lengkap"
-        android:textSize="14sp"
-        android:textColor="@color/textThinColor"
         android:gravity="center_vertical"
+        android:hint="@string/nama_lengkap"
+        android:textColor="@color/textThinColor"
+        android:textColorHint="textThinColor"
+        android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_fullname" />
@@ -75,8 +77,8 @@
         android:layout_marginTop="16dp"
         android:gravity="center_vertical"
         android:text="@string/nama_pengguna"
-        android:textSize="14sp"
         android:textColor="@color/mainTextColor"
+        android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/et_fullname" />
@@ -85,10 +87,11 @@
         android:id="@+id/et_username"
         android:layout_width="match_parent"
         android:layout_height="48dp"
-        android:text="@string/nama_pengguna"
-        android:textSize="14sp"
-        android:textColor="@color/textThinColor"
         android:gravity="center_vertical"
+        android:hint="@string/nama_pengguna"
+        android:textColor="@color/textThinColor"
+        android:textColorHint="textThinColor"
+        android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_username" />
@@ -100,8 +103,8 @@
         android:layout_marginTop="16dp"
         android:gravity="center_vertical"
         android:text="@string/kata_sandi"
-        android:textSize="14sp"
         android:textColor="@color/mainTextColor"
+        android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/et_username" />
@@ -110,14 +113,16 @@
         android:id="@+id/et_password"
         android:layout_width="match_parent"
         android:layout_height="48dp"
-        android:text="@string/kata_sandi"
-        android:textSize="14sp"
-        android:textColor="@color/textThinColor"
-        android:inputType="textPassword"
         android:gravity="center_vertical"
+        android:hint="@string/kata_sandi"
+        android:inputType="textPassword"
+        android:textColor="@color/textThinColor"
+        android:textColorHint="textThinColor"
+        android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_password" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_password"
+        app:passwordToggleEnabled="true" />
 
     <TextView
         android:id="@+id/tv_confirm_password"
@@ -126,8 +131,8 @@
         android:layout_marginTop="16dp"
         android:gravity="center_vertical"
         android:text="@string/konfirmasi_kata_sandi"
-        android:textSize="14sp"
         android:textColor="@color/mainTextColor"
+        android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/et_password" />
@@ -136,24 +141,26 @@
         android:id="@+id/et_confirm_password"
         android:layout_width="match_parent"
         android:layout_height="48dp"
-        android:text="@string/konfirmasi_kata_sandi"
-        android:textSize="14sp"
-        android:textColor="@color/textThinColor"
-        android:inputType="textPassword"
         android:gravity="center_vertical"
+        android:hint="@string/konfirmasi_kata_sandi"
+        android:inputType="textPassword"
+        android:textColor="@color/textThinColor"
+        android:textColorHint="textThinColor"
+        android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_confirm_password" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_confirm_password"
+        app:passwordToggleEnabled="true" />
 
     <Button
-        android:id="@+id/btn_login"
+        android:id="@+id/btn_register"
         android:layout_width="match_parent"
         android:layout_height="48dp"
         android:layout_marginTop="16dp"
-        android:text="@string/masuk"
-        android:textSize="14sp"
         android:backgroundTint="@color/colorPrimary"
+        android:text="@string/daftar"
         android:textColor="@color/mainTextColor"
+        android:textSize="14sp"
         app:circularflow_radiusInDP="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -163,33 +170,43 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="6dp"
+        android:gravity="center"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        android:gravity="center"
         tools:ignore="MissingConstraints">
 
         <TextView
-            android:id="@+id/tv_belum_punya_akun"
+            android:id="@+id/tv_sudah_punya_akun"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:paddingVertical="10dp"
             android:paddingHorizontal="2dp"
-            android:text="@string/belum_punya_akun"
-            android:textSize="12sp"
-            android:textColor="@color/mainTextColor" />
+            android:paddingVertical="10dp"
+            android:text="@string/sudah_punya_akun"
+            android:textColor="@color/mainTextColor"
+            android:textSize="12sp" />
 
         <TextView
-            android:id="@+id/tv_daftar"
+            android:id="@+id/tv_masuk"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:clickable="true"
             android:focusable="true"
-            android:paddingVertical="10dp"
             android:paddingHorizontal="2dp"
-            android:text="@string/daftar"
-            android:textSize="12sp"
-            android:textColor="@color/colorPrimary" />
+            android:paddingVertical="10dp"
+            android:text="@string/masuk"
+            android:textColor="@color/colorPrimary"
+            android:textSize="12sp" />
     </LinearLayout>
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
