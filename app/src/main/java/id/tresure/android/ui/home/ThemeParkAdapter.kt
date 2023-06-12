@@ -4,11 +4,11 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import id.tresure.android.data.remote.response.PlacesResponseItem
+import id.tresure.android.data.remote.response.ThemeParkResponseItem
 import id.tresure.android.databinding.ItemPlaceBinding
 
-class PlaceAdapter(private val listPlace: List<PlacesResponseItem>) :
-    RecyclerView.Adapter<PlaceAdapter.ViewHolder>() {
+class ThemeParkAdapter(private val listPlace: List<ThemeParkResponseItem>) :
+    RecyclerView.Adapter<ThemeParkAdapter.ViewHolder>() {
 
     private lateinit var onItemClickCallback: OnItemClickCallback
 
@@ -37,7 +37,7 @@ class PlaceAdapter(private val listPlace: List<PlacesResponseItem>) :
     }
 
     interface OnItemClickCallback {
-        fun onItemClicked(data: PlacesResponseItem)
+        fun onItemClicked(data: ThemeParkResponseItem)
     }
 
     fun setOnItemClickCallback(onItemClickCallback: OnItemClickCallback) {

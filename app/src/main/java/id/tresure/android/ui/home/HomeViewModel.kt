@@ -1,54 +1,63 @@
 package id.tresure.android.ui.home
 
+import android.app.Application
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import id.tresure.android.data.remote.api.ApiConfig
-import id.tresure.android.data.remote.response.PlaceResponse
-import id.tresure.android.data.remote.response.ResponseItem
+import id.tresure.android.data.remote.response.PlacesResponse
+import id.tresure.android.data.remote.response.PlacesResponseItem
+import id.tresure.android.helper.Event
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class HomeViewModel : ViewModel() {
+class HomeViewModel(
+    private val application: Application
+) : ViewModel() {
 
-    private val _listPlace = MutableLiveData<List<ResponseItem>>()
-    val listPlace: LiveData<List<ResponseItem>> = _listPlace
+    private val mIsLoading = MutableLiveData<Boolean>()
+    val isLoading: LiveData<Boolean> = mIsLoading
 
-    private val _isLoading = MutableLiveData<Boolean>()
-    val isLoading: LiveData<Boolean> = _isLoading
+    private val mListPlace = MutableLiveData<List<PlacesResponseItem>>()
+    val listPlace: LiveData<List<PlacesResponseItem>> = mListPlace
 
-    companion object {
-        private const val TAG = "HomeViewModel"
+    private val mSnackBarText = MutableLiveData<Event<String>>()
+    val snackBarText: LiveData<Event<String>> = mSnackBarText
+
+    private fun showLoading(isLoading: Boolean) {
+        mIsLoading.value = isLoading
     }
 
-    fun getAllPlaces() {
+    fun getAllStory(token: String) {
         showLoading(true)
-        val client = ApiConfig.getApiService().getAllPlaces()
-        client.enqueue(object : Callback<List<PlaceResponse>> {
+        val client = ApiConfig.getApiService().getAllPlaces(token)
+        client.enqueue(object : Callback<List<PlacesResponse>> {
             override fun onResponse(
-                call: Call<List<PlaceResponse>>, response: Response<List<PlaceResponse>>
+                call: Call<List<PlacesResponse>>, response: Response<List<PlacesResponse>>
             ) {
                 showLoading(false)
                 if (response.isSuccessful) {
                     val responseBody = response.body()
                     if (responseBody != null) {
-                        _listPlace.value = responseBody as List<ResponseItem>
+                        mListPlace.value = responseBody as List<PlacesResponseItem>
                     }
                 } else {
+                    mSnackBarText.value = Event("Something went wrong, please try again later")
                     Log.e(TAG, "onFailure: ${response.message()}")
                 }
             }
 
-            override fun onFailure(call: Call<List<PlaceResponse>>, t: Throwable) {
+            override fun onFailure(call: Call<List<PlacesResponse>>, t: Throwable) {
                 showLoading(false)
                 Log.e(TAG, "onFailure: ${t.message.toString()}")
+                mSnackBarText.value = Event("Gagal mengambil data")
             }
         })
     }
 
-    fun showLoading(state: Boolean) {
-        _isLoading.value = state
+    companion object {
+        private const val TAG = "MainViewModel"
     }
 }

@@ -1,22 +1,27 @@
 package id.tresure.android.data.remote.response
 
+import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
+import kotlinx.parcelize.Parcelize
 
-data class PlaceResponse(
-    @field:SerializedName("response") val response: List<ResponseItem>?
-)
+@Parcelize
+data class PlacesResponse(
 
-data class ResponseItem(
+    @field:SerializedName("PlacesResponse") val placesResponse: List<PlacesResponseItem>? = null
+) : Parcelable
+
+@Parcelize
+data class PlacesResponseItem(
 
     @field:SerializedName("image") val image: String? = null,
 
-    @field:SerializedName("category_id") val categoryId: String? = null,
+    @field:SerializedName("category_id") val categoryId: Int? = null,
 
     @field:SerializedName("lng") val lng: Float? = null,
 
     @field:SerializedName("city") val city: String? = null,
 
-    @field:SerializedName("price") val price: Float? = null,
+    @field:SerializedName("price") val price: Int? = null,
 
     @field:SerializedName("name") val name: String? = null,
 
@@ -24,7 +29,7 @@ data class ResponseItem(
 
     @field:SerializedName("description") val description: String? = null,
 
-    @field:SerializedName("id") val id: String? = null,
+    @field:SerializedName("id") val id: Int? = null,
 
     @field:SerializedName("lat") val lat: Float? = null
-)
+) : Parcelable
