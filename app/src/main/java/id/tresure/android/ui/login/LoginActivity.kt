@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityOptionsCompat
 import androidx.core.content.ContextCompat
@@ -50,6 +51,10 @@ class LoginActivity : AppCompatActivity() {
                         ).setTextColor(ContextCompat.getColor(this@LoginActivity, R.color.black))
                         .show()
                 }
+            }
+
+            isLoading.observe(this@LoginActivity) { isLoading ->
+                showLoading(isLoading)
             }
 
             loginError.observe(this@LoginActivity) { loginError ->
@@ -121,5 +126,10 @@ class LoginActivity : AppCompatActivity() {
 
         binding.btnLogin.isEnabled =
             true && username.isNotEmpty() && true && password.isNotEmpty() && password.isValidPassword()
+    }
+
+    private fun showLoading(isLoading: Boolean) {
+        binding.progressBar.visibility = if (isLoading) View.VISIBLE else View.GONE
+        binding.ivLogo.visibility = if (isLoading) View.GONE else View.VISIBLE
     }
 }

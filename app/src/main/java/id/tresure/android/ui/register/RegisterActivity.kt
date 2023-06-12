@@ -30,6 +30,7 @@ class RegisterActivity : AppCompatActivity() {
 
         initViewModel()
         setupAction()
+        setButton()
     }
 
     private fun initViewModel() {
@@ -183,5 +184,6 @@ class RegisterActivity : AppCompatActivity() {
 
     private fun showLoading(isLoading: Boolean) {
         binding.progressBar.visibility = if (isLoading) View.VISIBLE else View.GONE
+        binding.ivLogo.visibility = if (isLoading) View.GONE else View.VISIBLE
     }
 }
