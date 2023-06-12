@@ -25,7 +25,7 @@ class ViewModelFactory(
             }
 
             modelClass.isAssignableFrom(HomeViewModel::class.java) -> {
-                HomeViewModel(application) as T
+                HomeViewModel() as T
             }
 
 

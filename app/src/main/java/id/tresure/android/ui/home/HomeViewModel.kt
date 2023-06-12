@@ -13,9 +13,7 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class HomeViewModel(
-    private val application: Application
-) : ViewModel() {
+class HomeViewModel() : ViewModel() {
 
     private val mIsLoading = MutableLiveData<Boolean>()
     val isLoading: LiveData<Boolean> = mIsLoading
