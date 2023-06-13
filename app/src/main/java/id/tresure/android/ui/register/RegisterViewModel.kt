@@ -5,6 +5,7 @@ import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import id.tresure.android.R
 import id.tresure.android.data.remote.api.ApiConfig
 import id.tresure.android.data.remote.response.RegisterResponse
 import id.tresure.android.helper.Event
@@ -39,19 +40,22 @@ class RegisterViewModel(private val application: Application) : ViewModel() {
                     if (responseBody != null) {
                         val isError = responseBody.error as Boolean
                         if (isError) {
-                            mSnackBarText.value = Event("Email is already taken")
+                            mSnackBarText.value =
+                                Event(application.getString(R.string.email_atau_username_sudah_digunakan))
                         }
                         mIsUserCreated.value = true
                     }
                 } else {
-                    mSnackBarText.value = Event("Email is already taken")
+                    mSnackBarText.value =
+                        Event(application.getString(R.string.email_atau_username_sudah_digunakan))
                     Log.e(TAG, "onFailure: ${response.message()}")
                 }
             }
 
             override fun onFailure(call: Call<RegisterResponse>, t: Throwable) {
                 showLoading(false)
-                mSnackBarText.value = Event("Something went wrong")
+                mSnackBarText.value =
+                    Event(application.getString(R.string.ada_yang_salah_coba_lagi_nanti))
                 Log.e(TAG, "onFailure: ${t.message}")
             }
         })

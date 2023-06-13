@@ -46,7 +46,7 @@ class RegisterActivity : AppCompatActivity() {
                             ContextCompat.getColor(
                                 this@RegisterActivity, R.color.warningColor
                             )
-                        ).setTextColor(ContextCompat.getColor(this@RegisterActivity, R.color.black))
+                        ).setTextColor(ContextCompat.getColor(this@RegisterActivity, R.color.white))
                         .show()
                 }
             }
@@ -55,8 +55,9 @@ class RegisterActivity : AppCompatActivity() {
             }
             isUserCreated.observe(this@RegisterActivity) {
                 if (it == true) {
-                    AlertDialog.Builder(this@RegisterActivity).setTitle("Success")
-                        .setMessage("User created successfully")
+                    AlertDialog.Builder(this@RegisterActivity)
+                        .setTitle(getString(R.string.berhasil))
+                        .setMessage(getString(R.string.pengguna_berhasil_dibuat))
                         .setPositiveButton("OK") { dialog, _ ->
                             dialog.dismiss()
                             startActivity(Intent(this@RegisterActivity, LoginActivity::class.java))
@@ -91,9 +92,10 @@ class RegisterActivity : AppCompatActivity() {
                 }
 
                 override fun afterTextChanged(s: Editable?) {
-                    etFullname.error =
-                        if (etFullname.text.toString().isEmpty()) "Tidak boleh kosong"
-                        else null
+                    etFullname.error = if (etFullname.text.toString()
+                            .isEmpty()
+                    ) getString(R.string.tidak_boleh_kosong)
+                    else null
                 }
             })
 
@@ -108,9 +110,10 @@ class RegisterActivity : AppCompatActivity() {
                 }
 
                 override fun afterTextChanged(s: Editable?) {
-                    etUsername.error =
-                        if (etUsername.text.toString().isEmpty()) "Tidak boleh kosong"
-                        else null
+                    etUsername.error = if (etUsername.text.toString()
+                            .isEmpty()
+                    ) getString(R.string.tidak_boleh_kosong)
+                    else null
                 }
             })
 
@@ -125,8 +128,10 @@ class RegisterActivity : AppCompatActivity() {
                 }
 
                 override fun afterTextChanged(s: Editable?) {
-                    etEmail.error = if (etEmail.text.toString().isEmpty()) "Tidak boleh kosong"
-                    else if (!s.isValidEmail()) "Email tidak valid"
+                    etEmail.error = if (etEmail.text.toString()
+                            .isEmpty()
+                    ) getString(R.string.tidak_boleh_kosong)
+                    else if (!s.isValidEmail()) getString(R.string.email_tidak_valid)
                     else null
                 }
             })
@@ -142,10 +147,13 @@ class RegisterActivity : AppCompatActivity() {
                 }
 
                 override fun afterTextChanged(s: Editable?) {
-                    etPassword.error =
-                        if (!etPassword.text.toString().isValidPassword()) "Minimal 8 karakter"
-                        else if (etPassword.text.toString().isEmpty()) "Tidak boleh kosong"
-                        else null
+                    etPassword.error = if (!etPassword.text.toString().isValidPassword()) getString(
+                        R.string.minimal_8_karakter
+                    )
+                    else if (etPassword.text.toString()
+                            .isEmpty()
+                    ) getString(R.string.tidak_boleh_kosong)
+                    else null
                 }
             })
 
@@ -153,9 +161,7 @@ class RegisterActivity : AppCompatActivity() {
                 override fun beforeTextChanged(
                     s: CharSequence?, start: Int, count: Int, after: Int
                 ) {
-                    etConfirmPassword.error =
-                        if (etConfirmPassword.text.toString() != etConfirmPassword.text.toString()) "Password tidak cocok"
-                        else null
+
                 }
 
                 override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
@@ -163,10 +169,13 @@ class RegisterActivity : AppCompatActivity() {
                 }
 
                 override fun afterTextChanged(s: Editable?) {
-                    etConfirmPassword.error =
-                        if (etConfirmPassword.text.toString().isEmpty()) "Tidak boleh kosong"
-                        else if (etPassword.text.toString() != etConfirmPassword.text.toString()) "Password tidak cocok"
-                        else null
+                    etConfirmPassword.error = if (etConfirmPassword.text.toString()
+                            .isEmpty()
+                    ) getString(R.string.tidak_boleh_kosong)
+                    else if (etPassword.text.toString() != etConfirmPassword.text.toString()) getString(
+                        R.string.password_tidak_cocok
+                    )
+                    else null
                 }
             })
 
@@ -177,6 +186,11 @@ class RegisterActivity : AppCompatActivity() {
                     val username = etUsername.text.toString()
                     val password = etPassword.text.toString()
                     viewModel.register(username, password, email, fullname)
+                }
+
+                tvMasuk.setOnClickListener {
+                    startActivity(Intent(this@RegisterActivity, LoginActivity::class.java))
+                    finish()
                 }
             }
         }

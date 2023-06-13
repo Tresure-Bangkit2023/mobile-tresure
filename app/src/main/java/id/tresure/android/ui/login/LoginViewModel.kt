@@ -6,6 +6,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import id.tresure.android.R
 import id.tresure.android.data.local.User
 import id.tresure.android.data.local.UserPreference
 import id.tresure.android.data.remote.api.ApiConfig
@@ -46,15 +47,20 @@ class LoginViewModel(
                             pref.saveUser(User(username, token))
                         }
                     }
-                } else {
+                } else if (response.code() == 401) {
+                    mSnackBarText.value =
+                        Event(application.getString(R.string.username_atau_password_salah))
                     mLoginError.value = true
+                    Log.e(TAG, "onFailure: ${response.body()}")
+                } else {
+                    mSnackBarText.value = Event(application.getString(R.string.login_gagal))
                     Log.e(TAG, "onFailure: ${response.body()}")
                 }
             }
 
             override fun onFailure(call: Call<LoginResponse>, t: Throwable) {
                 showLoading(false)
-                mSnackBarText.value = Event("Login failed")
+                mSnackBarText.value = Event(application.getString(R.string.login_gagal))
                 Log.e(TAG, "onFailure: ${t.message}")
             }
         })

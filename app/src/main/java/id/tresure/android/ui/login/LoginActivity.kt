@@ -1,10 +1,12 @@
 package id.tresure.android.ui.login
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.View
+import android.view.inputmethod.InputMethodManager
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityOptionsCompat
 import androidx.core.content.ContextCompat
@@ -48,7 +50,7 @@ class LoginActivity : AppCompatActivity() {
                             ContextCompat.getColor(
                                 this@LoginActivity, R.color.warningColor
                             )
-                        ).setTextColor(ContextCompat.getColor(this@LoginActivity, R.color.black))
+                        ).setTextColor(ContextCompat.getColor(this@LoginActivity, R.color.white))
                         .show()
                 }
             }
@@ -58,6 +60,7 @@ class LoginActivity : AppCompatActivity() {
             }
 
             loginError.observe(this@LoginActivity) { loginError ->
+                showLoginInvalid(loginError)
 
                 if (!loginError) {
                     val intent = Intent(this@LoginActivity, MainActivity::class.java)
@@ -79,12 +82,14 @@ class LoginActivity : AppCompatActivity() {
 
                 override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
                     setButton()
+                    showLoginInvalid(false)
                 }
 
                 override fun afterTextChanged(s: Editable?) {
-                    etUsername.error =
-                        if (etUsername.text.toString().isEmpty()) "Username tidak boleh kosong"
-                        else null
+                    etUsername.error = if (etUsername.text.toString()
+                            .isEmpty()
+                    ) getString(R.string.tidak_boleh_kosong)
+                    else null
                 }
             })
 
@@ -96,9 +101,17 @@ class LoginActivity : AppCompatActivity() {
 
                 override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
                     setButton()
+                    showLoginInvalid(false)
                 }
 
                 override fun afterTextChanged(s: Editable?) {
+                    etPassword.error = if (!etPassword.text.toString().isValidPassword()) getString(
+                        R.string.minimal_8_karakter
+                    )
+                    else if (etPassword.text.toString()
+                            .isEmpty()
+                    ) getString(R.string.tidak_boleh_kosong)
+                    else null
                 }
             })
 
@@ -108,6 +121,7 @@ class LoginActivity : AppCompatActivity() {
                     val password = it.etPassword.text.toString()
                     viewModel.login(username, password)
                 }
+                it.hideKeyboard()
             }
 
             tvDaftar.setOnClickListener {
@@ -126,6 +140,16 @@ class LoginActivity : AppCompatActivity() {
 
         binding.btnLogin.isEnabled =
             true && username.isNotEmpty() && true && password.isNotEmpty() && password.isValidPassword()
+    }
+
+    private fun showLoginInvalid(isError: Boolean) {
+        binding.cvLoginInvalid.visibility = if (isError) View.VISIBLE else View.GONE
+    }
+
+    private fun View.hideKeyboard() {
+        val inputManager =
+            context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+        inputManager.hideSoftInputFromWindow(windowToken, 0)
     }
 
     private fun showLoading(isLoading: Boolean) {

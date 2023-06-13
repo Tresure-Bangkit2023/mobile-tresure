@@ -38,4 +38,14 @@
     <string name="konfirmasi_kata_sandi">Konfirmasi Kata Sandi</string>
     <string name="kata_sandi">Kata Sandi</string>
     <string name="sudah_punya_akun">Sudah punya akun?</string>
+    <string name="berhasil">Berhasil</string>
+    <string name="pengguna_berhasil_dibuat">Pengguna berhasil dibuat!</string>
+    <string name="tidak_boleh_kosong">Tidak boleh kosong</string>
+    <string name="email_tidak_valid">Email tidak valid</string>
+    <string name="minimal_8_karakter">Minimal 8 karakter</string>
+    <string name="password_tidak_cocok">Password tidak cocok</string>
+    <string name="username_atau_password_salah">Username atau password salah</string>
+    <string name="login_gagal">Login gagal</string>
+    <string name="email_atau_username_sudah_digunakan">Email atau username sudah digunakan</string>
+    <string name="ada_yang_salah_coba_lagi_nanti">Ada yang salah, coba lagi nanti</string>
 </resources>
