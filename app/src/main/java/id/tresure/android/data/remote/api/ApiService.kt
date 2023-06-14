@@ -1,9 +1,10 @@
 package id.tresure.android.data.remote.api
 
+import id.tresure.android.data.remote.response.ArtResponse
 import id.tresure.android.data.remote.response.LoginResponse
-import id.tresure.android.data.remote.response.MallResponse
 import id.tresure.android.data.remote.response.PlacesResponse
 import id.tresure.android.data.remote.response.RegisterResponse
+import id.tresure.android.data.remote.response.ThemeParkResponse
 import retrofit2.Call
 import retrofit2.http.Field
 import retrofit2.http.FormUrlEncoded
@@ -31,15 +32,15 @@ interface ApiService {
     @GET("places")
     fun getAllPlaces(
         @Header("Authorization") token: String
-    ): Call<List<PlacesResponse>>
+    ): Call<PlacesResponse>
+
+    @GET("places/search?category=budaya")
+    fun getArt(
+        @Header("Authorization") token: String
+    ): Call<ArtResponse>
 
     @GET("places/search?category=pusat perbelanjaan")
-    fun getMall(
-        @Header("Authorization") token: String
-    ): Call<List<MallResponse>>
-
-    @GET("places/search?category=taman hiburan")
     fun getThemePark(
         @Header("Authorization") token: String
-    ): Call<List<MallResponse>>
+    ): Call<ThemeParkResponse>
 }

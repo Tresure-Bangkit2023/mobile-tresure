@@ -6,6 +6,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import id.tresure.android.data.remote.response.PlacesResponseItem
 import id.tresure.android.databinding.ItemPlaceBinding
+import java.text.NumberFormat
+import java.util.Locale
 
 class PlaceAdapter(private val listPlace: List<PlacesResponseItem>) :
     RecyclerView.Adapter<PlaceAdapter.ViewHolder>() {
@@ -25,7 +27,9 @@ class PlaceAdapter(private val listPlace: List<PlacesResponseItem>) :
             tvDescription.text = listPlace[position].description
             tvPrice.text = listPlace[position].price.toString()
         }
-        Glide.with(holder.itemView.rootView).load(listPlace[position].image)
+        Glide.with(holder.itemView.rootView)
+            .load(listPlace[position].image)
+            .override(144,96)
             .into(holder.binding.ivPlace)
         holder.itemView.setOnClickListener {
             onItemClickCallback.onItemClicked(listPlace[position])

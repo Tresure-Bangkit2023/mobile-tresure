@@ -5,17 +5,17 @@ import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
 
 @Parcelize
-data class PlacesResponse(
+data class ArtResponse(
 
 	@field:SerializedName("data")
-	val data: List<PlacesResponseItem>?,
+	val data: List<ArtResponseItem>?,
 
 	@field:SerializedName("error")
 	val error: Boolean? = null
 ) : Parcelable
 
 @Parcelize
-data class PlacesResponseItem(
+data class ArtResponseItem(
 
 	@field:SerializedName("image")
 	val image: String? = null,
@@ -43,6 +43,9 @@ data class PlacesResponseItem(
 
 	@field:SerializedName("id")
 	val id: Int? = null,
+
+	@field:SerializedName("category")
+	val category: Category? = null,
 
 	@field:SerializedName("lat")
 	val lat: Float? = null
