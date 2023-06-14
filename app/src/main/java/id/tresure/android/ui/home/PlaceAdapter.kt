@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import id.tresure.android.data.remote.response.PlacesResponseItem
 import id.tresure.android.databinding.ItemPlaceBinding
+import id.tresure.android.helper.Helper.Companion.currencyFormat
 import java.text.NumberFormat
 import java.util.Locale
 
@@ -25,7 +26,7 @@ class PlaceAdapter(private val listPlace: List<PlacesResponseItem>) :
         holder.binding.apply {
             tvName.text = listPlace[position].name
             tvDescription.text = listPlace[position].description
-            tvPrice.text = listPlace[position].price.toString()
+            tvPrice.text = listPlace[position].price?.currencyFormat() ?: "Rp. 0"
         }
         Glide.with(holder.itemView.rootView)
             .load(listPlace[position].image)

@@ -39,7 +39,7 @@ interface ApiService {
         @Header("Authorization") token: String
     ): Call<ArtResponse>
 
-    @GET("places/search?category=pusat perbelanjaan")
+    @GET("places/search?category=taman hiburan")
     fun getThemePark(
         @Header("Authorization") token: String
     ): Call<ThemeParkResponse>

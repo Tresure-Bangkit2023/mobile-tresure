@@ -112,7 +112,7 @@ class HomeFragment : Fragment() {
             override fun onItemClicked(data: ArtResponseItem) {
                 activity.let {
                     val intent = Intent(it, DetailPlaceActivity::class.java)
-                    intent.putExtra(EXTRA_PLACE, data)
+                    intent.putExtra(EXTRA_ART, data)
                     startActivity(intent)
                 }
 
@@ -127,7 +127,7 @@ class HomeFragment : Fragment() {
             override fun onItemClicked(data: ThemeParkResponseItem) {
                 activity.let {
                     val intent = Intent(it, DetailPlaceActivity::class.java)
-                    intent.putExtra(EXTRA_PLACE, data)
+                    intent.putExtra(EXTRA_THEME_PARK, data)
                     startActivity(intent)
                 }
 

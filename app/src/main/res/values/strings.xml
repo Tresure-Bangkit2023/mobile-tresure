@@ -53,4 +53,11 @@
     <string name="gagal_mengambil_data">Gagal mengambil data</string>
     <string name="rp">IDR</string>
     <string name="suka_dengan_seni_dan_budaya">Suka dengan seni dan budaya?</string>
+    <string name="bahari">Bahari</string>
+    <string name="budaya">Budaya</string>
+    <string name="cagar_alam">Cagar Alam</string>
+    <string name="pusat_perbelanjaan">Pusat Perbelanjaan</string>
+    <string name="taman_hiburan">Taman Hiburan</string>
+    <string name="tempat_ibadah">Tempat Ibadah</string>
+    <string name="lainnya">Lainnya</string>
 </resources>
