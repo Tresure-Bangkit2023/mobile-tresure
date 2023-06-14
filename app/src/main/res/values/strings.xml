@@ -65,4 +65,6 @@
     <string name="taman_hiburan">Taman Hiburan</string>
     <string name="tempat_ibadah">Tempat Ibadah</string>
     <string name="lainnya">Lainnya</string>
+    <string name="rencana_berhasil_dibuat">Rencana Berhasil Dibuat</string>
+    <string name="rencana_gagal_dibuat">Rencana Gagal Dibuat</string>
 </resources>
