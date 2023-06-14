@@ -24,7 +24,7 @@
     <string name="place_image">Place Image</string>
     <string name="nama">Nama</string>
     <string name="deskripsi">Deskripsi</string>
-    <string name="rp100_000">Rp100.000</string>
+    <string name="rp100_000">100.000</string>
     <string name="orang">/orang</string>
     <string name="plan_image">Plan Image</string>
     <string name="_20_00">20.00</string>
@@ -43,4 +43,26 @@
     <string name="bantuan">Bantuan</string>
     <string name="tentang">Tentang</string>
     <string name="keluar">Keluar</string>
+    <string name="berhasil">Berhasil</string>
+    <string name="pengguna_berhasil_dibuat">Pengguna berhasil dibuat!</string>
+    <string name="tidak_boleh_kosong">Tidak boleh kosong</string>
+    <string name="email_tidak_valid">Email tidak valid</string>
+    <string name="minimal_8_karakter">Minimal 8 karakter</string>
+    <string name="password_tidak_cocok">Password tidak cocok</string>
+    <string name="username_atau_password_salah">Nama pengguna atau kata sandi salah</string>
+    <string name="login_gagal">Login gagal</string>
+    <string name="email_atau_username_sudah_digunakan">Email atau nama pengguna sudah digunakan</string>
+    <string name="ada_yang_salah_coba_lagi_nanti">Ada yang salah, coba lagi nanti</string>
+    <string name="kategori">Kategori</string>
+    <string name="lorem_ipsum">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam sodales massa sit amet velit ornare, ac cursus eros blandit. Suspendisse erat metus, tristique vel dui suscipit, sagittis gravida urna. Curabitur venenatis, sem a malesuada facilisis, lorem nibh lacinia nulla, ut blandit massa purus sed felis. Quisque ac congue elit. Nullam porttitor tristique erat, id ultrices arcu vestibulum non. Aliquam dictum mi nec blandit fermentum. Ut non eros massa. Donec vulputate metus tortor, sit amet tincidunt justo porttitor non. In hac habitasse platea dictumst. Ut vitae feugiat neque, eu maximus quam. Fusce mattis volutpat fermentum. Etiam placerat id lorem ut iaculis.</string>
+    <string name="gagal_mengambil_data">Gagal mengambil data</string>
+    <string name="rp">IDR</string>
+    <string name="suka_dengan_seni_dan_budaya">Suka dengan seni dan budaya?</string>
+    <string name="bahari">Bahari</string>
+    <string name="budaya">Budaya</string>
+    <string name="cagar_alam">Cagar Alam</string>
+    <string name="pusat_perbelanjaan">Pusat Perbelanjaan</string>
+    <string name="taman_hiburan">Taman Hiburan</string>
+    <string name="tempat_ibadah">Tempat Ibadah</string>
+    <string name="lainnya">Lainnya</string>
 </resources>

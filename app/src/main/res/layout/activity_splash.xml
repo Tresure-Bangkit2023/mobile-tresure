@@ -9,8 +9,8 @@
 
     <ImageView
         android:id="@+id/iv_logo"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:layout_width="144dp"
+        android:layout_height="144dp"
         android:alpha="0"
         android:contentDescription="@string/logo"
         android:src="@drawable/logo"

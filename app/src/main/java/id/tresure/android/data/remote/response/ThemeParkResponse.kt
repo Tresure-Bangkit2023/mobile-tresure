@@ -7,7 +7,9 @@ import kotlinx.parcelize.Parcelize
 @Parcelize
 data class ThemeParkResponse(
 
-    @field:SerializedName("ThemeParkResponse") val themeParkResponse: List<ThemeParkResponseItem?>? = null
+    @field:SerializedName("data") val data: List<ThemeParkResponseItem>?,
+
+    @field:SerializedName("error") val error: Boolean? = null
 ) : Parcelable
 
 @Parcelize
