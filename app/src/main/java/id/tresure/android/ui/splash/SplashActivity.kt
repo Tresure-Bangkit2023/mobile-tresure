@@ -11,19 +11,41 @@ import android.view.View
 import android.view.WindowInsets
 import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.ViewModelProvider
+import id.tresure.android.MainActivity
+import id.tresure.android.data.local.UserPreference
 import id.tresure.android.databinding.ActivitySplashBinding
+import id.tresure.android.helper.Helper.Companion.dataStore
+import id.tresure.android.ui.ViewModelFactory
+import id.tresure.android.ui.home.HomeFragment
+import id.tresure.android.ui.home.HomeViewModel
 import id.tresure.android.ui.login.LoginActivity
 
 class SplashActivity : AppCompatActivity() {
     private lateinit var binding: ActivitySplashBinding
+    private lateinit var viewModel: SplashViewModel
+    private var isLogin = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivitySplashBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        initViewModel()
         setupView()
         playAnimation()
+    }
+
+    private fun initViewModel() {
+        viewModel = ViewModelProvider(
+            this, ViewModelFactory(UserPreference.getInstance(dataStore), application)
+        )[SplashViewModel::class.java]
+
+        viewModel.apply {
+            getUser().observe(this@SplashActivity) { user ->
+                this@SplashActivity.isLogin = user.token.isNotEmpty()
+            }
+        }
     }
 
     private fun setupView() {
@@ -48,7 +70,11 @@ class SplashActivity : AppCompatActivity() {
         override fun onAnimationStart(a: Animator) {}
 
         override fun onAnimationEnd(a: Animator) {
-            val intent = Intent(this@SplashActivity, LoginActivity::class.java)
+            val intent = if (isLogin) {
+                Intent(this@SplashActivity, MainActivity::class.java)
+            } else {
+                Intent(this@SplashActivity, LoginActivity::class.java)
+            }
             startActivity(intent)
             finish()
         }
