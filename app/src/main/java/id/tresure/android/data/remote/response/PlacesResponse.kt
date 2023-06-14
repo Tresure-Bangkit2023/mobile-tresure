@@ -7,7 +7,9 @@ import kotlinx.parcelize.Parcelize
 @Parcelize
 data class PlacesResponse(
 
-    @field:SerializedName("PlacesResponse") val placesResponse: List<PlacesResponseItem>? = null
+    @field:SerializedName("data") val data: List<PlacesResponseItem>?,
+
+    @field:SerializedName("error") val error: Boolean? = null
 ) : Parcelable
 
 @Parcelize

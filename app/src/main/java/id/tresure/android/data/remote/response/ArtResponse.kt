@@ -5,21 +5,15 @@ import com.google.gson.annotations.SerializedName
 import kotlinx.parcelize.Parcelize
 
 @Parcelize
-data class MallResponse(
+data class ArtResponse(
 
-    @field:SerializedName("MallResponse") val mallResponse: List<MallResponseItem?>? = null
+    @field:SerializedName("data") val data: List<ArtResponseItem>?,
+
+    @field:SerializedName("error") val error: Boolean? = null
 ) : Parcelable
 
 @Parcelize
-data class Category(
-
-    @field:SerializedName("name") val name: String? = null,
-
-    @field:SerializedName("id") val id: Int? = null
-) : Parcelable
-
-@Parcelize
-data class MallResponseItem(
+data class ArtResponseItem(
 
     @field:SerializedName("image") val image: String? = null,
 

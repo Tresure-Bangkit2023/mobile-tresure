@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import id.tresure.android.data.remote.response.ThemeParkResponseItem
 import id.tresure.android.databinding.ItemPlaceBinding
+import id.tresure.android.helper.Helper.Companion.currencyFormat
 
 class ThemeParkAdapter(private val listPlace: List<ThemeParkResponseItem>) :
     RecyclerView.Adapter<ThemeParkAdapter.ViewHolder>() {
@@ -23,9 +24,9 @@ class ThemeParkAdapter(private val listPlace: List<ThemeParkResponseItem>) :
         holder.binding.apply {
             tvName.text = listPlace[position].name
             tvDescription.text = listPlace[position].description
-            tvPrice.text = listPlace[position].price.toString()
+            tvPrice.text = listPlace[position].price?.currencyFormat() ?: "Rp. 0"
         }
-        Glide.with(holder.itemView.rootView).load(listPlace[position].image)
+        Glide.with(holder.itemView.rootView).load(listPlace[position].image).override(144, 96)
             .into(holder.binding.ivPlace)
         holder.itemView.setOnClickListener {
             onItemClickCallback.onItemClicked(listPlace[position])
