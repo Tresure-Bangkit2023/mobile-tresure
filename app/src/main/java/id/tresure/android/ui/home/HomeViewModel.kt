@@ -21,7 +21,8 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class HomeViewModel(private val pref: UserPreference, private val application: Application) : ViewModel() {
+class HomeViewModel(private val pref: UserPreference, private val application: Application) :
+    ViewModel() {
 
     private val mIsLoading = MutableLiveData<Boolean>()
     val isLoading: LiveData<Boolean> = mIsLoading
@@ -60,7 +61,8 @@ class HomeViewModel(private val pref: UserPreference, private val application: A
                         mListPlace.value = responseBody.data as List<PlacesResponseItem>
                     }
                 } else {
-                    mSnackBarText.value = Event(application.getString(R.string.ada_yang_salah_coba_lagi_nanti))
+                    mSnackBarText.value =
+                        Event(application.getString(R.string.ada_yang_salah_coba_lagi_nanti))
                     Log.e(TAG, "onFailure: ${response.message()}")
                 }
             }
@@ -87,7 +89,8 @@ class HomeViewModel(private val pref: UserPreference, private val application: A
                         mListThemePark.value = responseBody.data as List<ThemeParkResponseItem>
                     }
                 } else {
-                    mSnackBarText.value = Event(application.getString(R.string.ada_yang_salah_coba_lagi_nanti))
+                    mSnackBarText.value =
+                        Event(application.getString(R.string.ada_yang_salah_coba_lagi_nanti))
                     Log.e(TAG, "onFailure: ${response.message()}")
                 }
             }
@@ -114,7 +117,8 @@ class HomeViewModel(private val pref: UserPreference, private val application: A
                         mListArt.value = responseBody.data as List<ArtResponseItem>
                     }
                 } else {
-                    mSnackBarText.value = Event(application.getString(R.string.ada_yang_salah_coba_lagi_nanti))
+                    mSnackBarText.value =
+                        Event(application.getString(R.string.ada_yang_salah_coba_lagi_nanti))
                     Log.e(TAG, "onFailure: ${response.message()}")
                 }
             }
@@ -126,7 +130,6 @@ class HomeViewModel(private val pref: UserPreference, private val application: A
             }
         })
     }
-
 
     companion object {
         private const val TAG = "HomeViewModel"

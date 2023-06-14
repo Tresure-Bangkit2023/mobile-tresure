@@ -26,8 +26,8 @@
             android:id="@+id/cv_category"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
             android:layout_marginHorizontal="16dp"
+            android:layout_marginTop="16dp"
             app:cardBackgroundColor="@color/textThinColor"
             app:cardCornerRadius="8dp"
             app:layout_constraintBottom_toTopOf="@id/tv_name"
@@ -40,8 +40,8 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="8dp"
                 android:text="@string/kategori"
-                app:layout_constraintBottom_toBottomOf="parent"
                 android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -77,22 +77,22 @@
             android:id="@+id/tv_price"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
             android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
             android:text="@string/rp100_000"
+            android:textColor="@color/colorPrimary"
             android:textSize="14sp"
             android:textStyle="bold"
-            android:textColor="@color/colorPrimary"
-            app:layout_constraintTop_toBottomOf="@id/tv_city"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_city" />
 
         <TextView
             android:id="@+id/tv_orang"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
-            android:textColor="@color/colorPrimary"
             android:text="@string/orang"
+            android:textColor="@color/colorPrimary"
             android:textSize="11sp"
             app:layout_constraintBottom_toBottomOf="@id/tv_price"
             app:layout_constraintStart_toEndOf="@id/tv_price" />
@@ -100,11 +100,10 @@
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toTopOf="@id/tv_price"
+            android:src="@drawable/ic_star_24"
             app:layout_constraintBottom_toBottomOf="@id/tv_price"
             app:layout_constraintEnd_toStartOf="@id/tv_rating"
-            android:src="@drawable/ic_star_24"
-            />
+            app:layout_constraintTop_toTopOf="@id/tv_price" />
 
         <TextView
             android:id="@+id/tv_rating"
@@ -112,8 +111,8 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="16dp"
             android:text="4.2"
-            android:textStyle="bold"
             android:textSize="14sp"
+            android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="@id/tv_price"
             app:layout_constraintEnd_toEndOf="parent" />
 
@@ -122,12 +121,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
-            android:textSize="14sp"
             android:justificationMode="inter_word"
             android:text="@string/lorem_ipsum"
-            app:layout_constraintTop_toBottomOf="@id/tv_price"
+            android:textSize="14sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"/>
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_price" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

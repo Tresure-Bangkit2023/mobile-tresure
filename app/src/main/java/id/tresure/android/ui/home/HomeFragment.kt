@@ -6,11 +6,9 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.app.ActivityOptionsCompat
 import androidx.core.content.ContextCompat
 import androidx.datastore.preferences.preferencesDataStore
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.snackbar.Snackbar
@@ -18,7 +16,6 @@ import id.tresure.android.R
 import id.tresure.android.data.local.UserPreference
 import id.tresure.android.data.remote.response.ArtResponseItem
 import id.tresure.android.data.remote.response.PlacesResponseItem
-import id.tresure.android.data.remote.response.ThemeParkResponse
 import id.tresure.android.data.remote.response.ThemeParkResponseItem
 import id.tresure.android.databinding.FragmentHomeBinding
 import id.tresure.android.ui.ViewModelFactory
@@ -49,7 +46,8 @@ class HomeFragment : Fragment() {
 
     private fun initViewModel() {
         val activity = requireActivity()
-        val viewModelFactory = ViewModelFactory(UserPreference.getInstance(activity.dataStore), activity.application)
+        val viewModelFactory =
+            ViewModelFactory(UserPreference.getInstance(activity.dataStore), activity.application)
         viewModel = ViewModelProvider(activity, viewModelFactory)[HomeViewModel::class.java]
         viewModel.apply {
             isLoading.observe(viewLifecycleOwner) { isLoading ->
@@ -59,7 +57,8 @@ class HomeFragment : Fragment() {
             snackBarText.observe(viewLifecycleOwner) {
                 it.getContentIfNotHandled()?.let { snackBarText ->
                     Snackbar.make(
-                        requireActivity().window.decorView.rootView, snackBarText,
+                        requireActivity().window.decorView.rootView,
+                        snackBarText,
                         Snackbar.LENGTH_SHORT
                     ).setBackgroundTint(
                         ContextCompat.getColor(
@@ -137,9 +136,11 @@ class HomeFragment : Fragment() {
     }
 
     private fun setupAction() {
-        val placeLayoutManager = LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL, false)
+        val placeLayoutManager =
+            LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL, false)
         val artLayoutManager = LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL, false)
-        val themeParkLayoutManager = LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL, false)
+        val themeParkLayoutManager =
+            LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL, false)
         binding.apply {
             rvViral.layoutManager = placeLayoutManager
             rvViral.setHasFixedSize(true)

@@ -26,9 +26,7 @@ class ThemeParkAdapter(private val listPlace: List<ThemeParkResponseItem>) :
             tvDescription.text = listPlace[position].description
             tvPrice.text = listPlace[position].price?.currencyFormat() ?: "Rp. 0"
         }
-        Glide.with(holder.itemView.rootView)
-            .load(listPlace[position].image)
-            .override(144,96)
+        Glide.with(holder.itemView.rootView).load(listPlace[position].image).override(144, 96)
             .into(holder.binding.ivPlace)
         holder.itemView.setOnClickListener {
             onItemClickCallback.onItemClicked(listPlace[position])

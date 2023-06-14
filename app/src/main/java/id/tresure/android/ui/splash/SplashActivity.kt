@@ -17,8 +17,6 @@ import id.tresure.android.data.local.UserPreference
 import id.tresure.android.databinding.ActivitySplashBinding
 import id.tresure.android.helper.Helper.Companion.dataStore
 import id.tresure.android.ui.ViewModelFactory
-import id.tresure.android.ui.home.HomeFragment
-import id.tresure.android.ui.home.HomeViewModel
 import id.tresure.android.ui.login.LoginActivity
 
 class SplashActivity : AppCompatActivity() {
