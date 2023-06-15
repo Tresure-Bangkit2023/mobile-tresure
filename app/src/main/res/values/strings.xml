@@ -67,4 +67,11 @@
     <string name="lainnya">Lainnya</string>
     <string name="rencana_berhasil_dibuat">Rencana Berhasil Dibuat</string>
     <string name="rencana_gagal_dibuat">Rencana Gagal Dibuat</string>
+    <string name="jakarta">Jakarta</string>
+    <string name="surabaya">Surabaya</string>
+    <string name="bandung">Bandung</string>
+    <string name="semarang">Semarang</string>
+    <string name="yogyakarta">Yogyakarta</string>
+    <string name="yakin_ingin_keluar">Yakin ingin keluar?</string>
+    <string name="tidak">Tidak</string>
 </resources>

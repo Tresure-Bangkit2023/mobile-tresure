@@ -24,8 +24,8 @@ import id.tresure.android.ui.detailplace.DetailPlaceActivity
 class HomeFragment : Fragment() {
 
     private var _binding: FragmentHomeBinding? = null
-    private val Context.dataStore by preferencesDataStore("UserPreference")
     private val binding get() = _binding!!
+    private val Context.dataStore by preferencesDataStore("UserPreference")
     private lateinit var viewModel: HomeViewModel
 
     override fun onCreateView(
@@ -41,7 +41,6 @@ class HomeFragment : Fragment() {
 
         initViewModel()
         setupAction()
-
     }
 
     private fun initViewModel() {
