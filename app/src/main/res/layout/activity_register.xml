@@ -11,6 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="16dp"
+        android:layout_gravity="center_vertical"
         android:orientation="vertical">
 
         <ImageView
@@ -43,7 +44,7 @@
             android:gravity="center_vertical"
             android:text="@string/email"
             android:textColor="@color/mainTextColor"
-            android:textSize="14sp"
+            android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/iv_logo" />
@@ -57,7 +58,7 @@
             android:inputType="textEmailAddress"
             android:textColor="@color/mainTextColor"
             android:textColorHint="@color/textThinColor"
-            android:textSize="14sp"
+            android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tv_email" />
@@ -70,7 +71,7 @@
             android:gravity="center_vertical"
             android:text="@string/nama_lengkap"
             android:textColor="@color/mainTextColor"
-            android:textSize="14sp"
+            android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/et_email" />
@@ -84,7 +85,7 @@
             android:inputType="text"
             android:textColor="@color/mainTextColor"
             android:textColorHint="@color/textThinColor"
-            android:textSize="14sp"
+            android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tv_fullname" />
@@ -97,7 +98,7 @@
             android:gravity="center_vertical"
             android:text="@string/nama_pengguna"
             android:textColor="@color/mainTextColor"
-            android:textSize="14sp"
+            android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/et_fullname" />
@@ -111,7 +112,7 @@
             android:inputType="text"
             android:textColor="@color/mainTextColor"
             android:textColorHint="@color/textThinColor"
-            android:textSize="14sp"
+            android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tv_username" />
@@ -124,7 +125,7 @@
             android:gravity="center_vertical"
             android:text="@string/kata_sandi"
             android:textColor="@color/mainTextColor"
-            android:textSize="14sp"
+            android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/et_username" />
@@ -138,7 +139,7 @@
             android:inputType="textPassword"
             android:textColor="@color/mainTextColor"
             android:textColorHint="@color/textThinColor"
-            android:textSize="14sp"
+            android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tv_password"
@@ -152,7 +153,7 @@
             android:gravity="center_vertical"
             android:text="@string/konfirmasi_kata_sandi"
             android:textColor="@color/mainTextColor"
-            android:textSize="14sp"
+            android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/et_password" />
@@ -166,7 +167,7 @@
             android:inputType="textPassword"
             android:textColor="@color/mainTextColor"
             android:textColorHint="@color/textThinColor"
-            android:textSize="14sp"
+            android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tv_confirm_password"
@@ -201,7 +202,7 @@
             android:layout_marginTop="16dp"
             android:text="@string/daftar"
             android:textColor="@color/mainTextColor"
-            android:textSize="14sp"
+            android:textSize="16sp"
             app:circularflow_radiusInDP="8dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -210,7 +211,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="6dp"
+            android:layout_marginVertical="6dp"
             android:gravity="center"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -225,7 +226,7 @@
                 android:paddingVertical="10dp"
                 android:text="@string/sudah_punya_akun"
                 android:textColor="@color/mainTextColor"
-                android:textSize="12sp" />
+                android:textSize="15sp" />
 
             <TextView
                 android:id="@+id/tv_masuk"
@@ -237,7 +238,7 @@
                 android:paddingVertical="10dp"
                 android:text="@string/masuk"
                 android:textColor="@color/colorPrimary"
-                android:textSize="12sp"
+                android:textSize="15sp"
                 tools:ignore="TouchTargetSizeCheck" />
         </LinearLayout>
 
