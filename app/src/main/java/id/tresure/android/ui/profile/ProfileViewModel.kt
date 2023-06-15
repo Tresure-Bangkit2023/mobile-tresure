@@ -3,11 +3,15 @@ package id.tresure.android.ui.profile
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
+import id.tresure.android.data.local.UserPreference
+import kotlinx.coroutines.launch
 
-class ProfileViewModel : ViewModel() {
+class ProfileViewModel(private val pref: UserPreference) : ViewModel() {
 
-    private val _text = MutableLiveData<String>().apply {
-        value = "This is profile Fragment"
+    fun logout() {
+        viewModelScope.launch {
+            pref.deleteUser()
+        }
     }
-    val text: LiveData<String> = _text
 }
