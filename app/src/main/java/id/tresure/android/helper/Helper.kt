@@ -25,7 +25,7 @@ class Helper {
             return currency.format(this)
         }
 
-        val Context.dataStore: DataStore<Preferences> by preferencesDataStore(name = "settings")
+        val Context.dataStore: DataStore<Preferences> by preferencesDataStore(name = "user_pref")
 
     }
 }

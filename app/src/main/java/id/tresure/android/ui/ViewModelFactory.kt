@@ -5,6 +5,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import id.tresure.android.data.local.UserPreference
 import id.tresure.android.ui.createplan.CreatePlanViewModel
+import id.tresure.android.ui.detailplan.DetailPlanViewModel
 import id.tresure.android.ui.home.HomeViewModel
 import id.tresure.android.ui.login.LoginViewModel
 import id.tresure.android.ui.plan.PlanViewModel
@@ -45,6 +46,10 @@ class ViewModelFactory(
 
             modelClass.isAssignableFrom(PlanViewModel::class.java) -> {
                 PlanViewModel(pref, application) as T
+            }
+
+            modelClass.isAssignableFrom(DetailPlanViewModel::class.java) -> {
+                DetailPlanViewModel(pref, application) as T
             }
 
             else -> throw IllegalArgumentException("Unknown ViewModel class: " + modelClass.name)
