@@ -17,6 +17,7 @@ import id.tresure.android.data.local.UserPreference
 import id.tresure.android.data.remote.response.PlanByUserIdResponseItem
 import id.tresure.android.databinding.FragmentPlanBinding
 import id.tresure.android.ui.ViewModelFactory
+import id.tresure.android.ui.createplan.CreatePlanActivity
 import id.tresure.android.ui.detailplan.DetailPlanActivity
 
 class PlanFragment : Fragment() {
@@ -100,6 +101,13 @@ class PlanFragment : Fragment() {
         binding.apply {
             rvMyPlan.layoutManager = planByUserIdLayoutManager
             rvMyPlan.setHasFixedSize(true)
+        }
+
+        binding.fabCreate.setOnClickListener {
+            activity.let {
+                val intent = Intent(it, CreatePlanActivity::class.java)
+                startActivity(intent)
+            }
         }
     }
 
