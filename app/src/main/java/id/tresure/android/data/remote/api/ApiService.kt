@@ -4,6 +4,7 @@ import id.tresure.android.data.remote.response.ArtResponse
 import id.tresure.android.data.remote.response.CreatePlanResponse
 import id.tresure.android.data.remote.response.LoginResponse
 import id.tresure.android.data.remote.response.PlacesResponse
+import id.tresure.android.data.remote.response.PlanByUserIdResponse
 import id.tresure.android.data.remote.response.PlanResponse
 import id.tresure.android.data.remote.response.RegisterResponse
 import id.tresure.android.data.remote.response.ThemeParkResponse
@@ -13,6 +14,7 @@ import retrofit2.http.FormUrlEncoded
 import retrofit2.http.GET
 import retrofit2.http.Header
 import retrofit2.http.POST
+import retrofit2.http.Path
 
 interface ApiService {
 
@@ -50,6 +52,11 @@ interface ApiService {
     fun getAllPlans(
         @Header("Authorization") token: String
     ): Call<PlanResponse>
+
+    @GET("users/{user_id}/plan")
+    fun getPlanByUserId(
+        @Header("Authorization") token: String, @Path("user_id") userId: Int
+    ): Call<PlanByUserIdResponse>
 
     @FormUrlEncoded
     @POST("plans")
