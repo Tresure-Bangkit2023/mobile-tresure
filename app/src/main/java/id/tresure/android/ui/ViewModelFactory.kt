@@ -7,6 +7,7 @@ import id.tresure.android.data.local.UserPreference
 import id.tresure.android.ui.createplan.CreatePlanViewModel
 import id.tresure.android.ui.home.HomeViewModel
 import id.tresure.android.ui.login.LoginViewModel
+import id.tresure.android.ui.profile.ProfileViewModel
 import id.tresure.android.ui.register.RegisterViewModel
 import id.tresure.android.ui.splash.SplashViewModel
 
@@ -35,6 +36,10 @@ class ViewModelFactory(
 
             modelClass.isAssignableFrom(CreatePlanViewModel::class.java) -> {
                 CreatePlanViewModel(application) as T
+            }
+
+            modelClass.isAssignableFrom(ProfileViewModel::class.java) -> {
+                ProfileViewModel(pref) as T
             }
 
             else -> throw IllegalArgumentException("Unknown ViewModel class: " + modelClass.name)

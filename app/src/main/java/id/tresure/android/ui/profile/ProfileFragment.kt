@@ -7,22 +7,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AlertDialog
-import androidx.core.content.ContextCompat
-import androidx.datastore.core.DataStore
-import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.preferencesDataStore
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.lifecycleScope
-import com.google.android.material.snackbar.Snackbar
 import id.tresure.android.R
 import id.tresure.android.data.local.UserPreference
 import id.tresure.android.databinding.FragmentProfileBinding
-import id.tresure.android.helper.Helper.Companion.dataStore
 import id.tresure.android.ui.ViewModelFactory
-import id.tresure.android.ui.home.HomeViewModel
 import id.tresure.android.ui.login.LoginActivity
-import kotlinx.coroutines.launch
 
 class ProfileFragment : Fragment() {
 
@@ -58,15 +50,14 @@ class ProfileFragment : Fragment() {
         binding.tvLogout.setOnClickListener {
             AlertDialog.Builder(requireContext()).apply {
                 setTitle(getString(R.string.keluar))
-                setMessage("Yakin ingin keluar?")
+                setMessage(getString(R.string.yakin_ingin_keluar))
                 setPositiveButton("Ya") { _, _ ->
                     viewModel.logout()
                     val intent = Intent(requireContext(), LoginActivity::class.java)
-                    intent.flags =
-                        Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                    intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
                     startActivity(intent)
                 }
-                setNegativeButton("Tidak", null)
+                setNegativeButton(getString(R.string.tidak), null)
             }.show()
 
         }

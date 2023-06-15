@@ -17,12 +17,8 @@ import id.tresure.android.R
 import id.tresure.android.data.local.UserPreference
 import id.tresure.android.databinding.ActivityCreatePlanBinding
 import id.tresure.android.helper.Helper.Companion.dataStore
-import id.tresure.android.helper.Helper.Companion.isValidEmail
-import id.tresure.android.helper.Helper.Companion.isValidPassword
 import id.tresure.android.ui.ViewModelFactory
 import id.tresure.android.ui.detailplan.DetailPlanActivity
-import id.tresure.android.ui.login.LoginActivity
-import id.tresure.android.ui.register.RegisterViewModel
 
 class CreatePlanActivity : AppCompatActivity() {
 
@@ -36,26 +32,11 @@ class CreatePlanActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         val cities = arrayOf(
-            "Jakarta",
-            "Surabaya",
-            "Bandung",
-            "Medan",
-            "Semarang",
-            "Makassar",
-            "Palembang",
-            "Depok",
-            "Tangerang",
-            "Batam",
-            "Bekasi",
-            "Padang",
-            "Denpasar",
-            "Bogor",
-            "Malang",
-            "Yogyakarta",
-            "Pekanbaru",
-            "Bandar Lampung",
-            "Banjarmasin",
-            "Surakarta"
+            getString(R.string.jakarta),
+            getString(R.string.surabaya),
+            getString(R.string.bandung),
+            getString(R.string.semarang),
+            getString(R.string.yogyakarta),
         )
         val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, cities)
         binding.spCity.adapter = adapter
@@ -78,8 +59,12 @@ class CreatePlanActivity : AppCompatActivity() {
                             ContextCompat.getColor(
                                 this@CreatePlanActivity, R.color.warningColor
                             )
-                        ).setTextColor(ContextCompat.getColor(this@CreatePlanActivity, R.color.white))
-                        .show()
+                        ).setTextColor(
+                            ContextCompat.getColor(
+                                this@CreatePlanActivity,
+                                R.color.white
+                            )
+                        ).show()
                 }
             }
             isLoading.observe(this@CreatePlanActivity) { isLoading ->
@@ -92,7 +77,12 @@ class CreatePlanActivity : AppCompatActivity() {
                         .setMessage(getString(R.string.rencana_berhasil_dibuat))
                         .setPositiveButton("OK") { dialog, _ ->
                             dialog.dismiss()
-                            startActivity(Intent(this@CreatePlanActivity, DetailPlanActivity::class.java))
+                            startActivity(
+                                Intent(
+                                    this@CreatePlanActivity,
+                                    DetailPlanActivity::class.java
+                                )
+                            )
                             finish()
                         }.show()
                 }
@@ -151,7 +141,12 @@ class CreatePlanActivity : AppCompatActivity() {
             })
 
             spCity.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
-                override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+                override fun onItemSelected(
+                    parent: AdapterView<*>?,
+                    view: View?,
+                    position: Int,
+                    id: Long
+                ) {
                     setButton()
                     val selectedCity = parent?.getItemAtPosition(position)?.toString() ?: ""
                     isCitySelected = !selectedCity.isNullOrEmpty()
