@@ -43,10 +43,12 @@ class LoginViewModel(
                     if (responseBody != null) {
                         mLoginError.value = responseBody.error as Boolean
                         val token = responseBody.token as String
+                        val userId = responseBody.userId as Int
                         viewModelScope.launch {
-                            pref.saveUser(User(username, token))
+                            pref.saveUser(User(userId, username, token))
                         }
                     }
+                    Log.d(TAG, "onResponse: ${responseBody?.userId.toString()}")
                 } else if (response.code() == 401) {
                     mSnackBarText.value =
                         Event(application.getString(R.string.username_atau_password_salah))

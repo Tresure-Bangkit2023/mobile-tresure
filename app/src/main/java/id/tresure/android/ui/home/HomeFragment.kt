@@ -16,10 +16,12 @@ import id.tresure.android.R
 import id.tresure.android.data.local.UserPreference
 import id.tresure.android.data.remote.response.ArtResponseItem
 import id.tresure.android.data.remote.response.PlacesResponseItem
+import id.tresure.android.data.remote.response.PlanResponseItem
 import id.tresure.android.data.remote.response.ThemeParkResponseItem
 import id.tresure.android.databinding.FragmentHomeBinding
 import id.tresure.android.ui.ViewModelFactory
 import id.tresure.android.ui.detailplace.DetailPlaceActivity
+import id.tresure.android.ui.detailplan.DetailPlanActivity
 
 class HomeFragment : Fragment() {
 
@@ -71,6 +73,9 @@ class HomeFragment : Fragment() {
                 }
             }
 
+            listPlan.observe(viewLifecycleOwner) { listPlan ->
+                setPlanList(listPlan)
+            }
             listPlace.observe(viewLifecycleOwner) { listPlace ->
                 setPlaceList(listPlace)
             }
@@ -82,11 +87,27 @@ class HomeFragment : Fragment() {
             }
 
             getUser().observe(viewLifecycleOwner) { user ->
+                viewModel.getAllPlans("Bearer ${user.token}")
                 viewModel.getAllPlace("Bearer ${user.token}")
                 viewModel.getArt("Bearer ${user.token}")
                 viewModel.getThemePark("Bearer ${user.token}")
             }
         }
+    }
+
+    private fun setPlanList(listPlan: List<PlanResponseItem>) {
+        val adapter = PlanAdapter(listPlan)
+        adapter.setOnItemClickCallback(object : PlanAdapter.OnItemClickCallback {
+            override fun onItemClicked(data: PlanResponseItem) {
+                activity.let {
+                    val intent = Intent(it, DetailPlanActivity::class.java)
+                    intent.putExtra(EXTRA_PLAN, data)
+                    startActivity(intent)
+                }
+
+            }
+        })
+        binding.rvOtherPlan.adapter = adapter
     }
 
     private fun setPlaceList(listPlace: List<PlacesResponseItem>) {
@@ -135,12 +156,16 @@ class HomeFragment : Fragment() {
     }
 
     private fun setupAction() {
+        val planLayoutManager =
+            LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL, false)
         val placeLayoutManager =
             LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL, false)
         val artLayoutManager = LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL, false)
         val themeParkLayoutManager =
             LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL, false)
         binding.apply {
+            rvOtherPlan.layoutManager = planLayoutManager
+            rvOtherPlan.setHasFixedSize(true)
             rvViral.layoutManager = placeLayoutManager
             rvViral.setHasFixedSize(true)
             rvArt.layoutManager = artLayoutManager
@@ -155,6 +180,7 @@ class HomeFragment : Fragment() {
     }
 
     companion object {
+        const val EXTRA_PLAN = "plan"
         const val EXTRA_PLACE = "place"
         const val EXTRA_ART = "art"
         const val EXTRA_THEME_PARK = "theme_park"
