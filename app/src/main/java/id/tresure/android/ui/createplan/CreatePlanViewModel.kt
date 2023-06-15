@@ -47,14 +47,7 @@ class CreatePlanViewModel(private val pref: UserPreference, private val applicat
     ) {
         showLoading(true)
         val client = ApiConfig.getApiService().createPlan(
-            token,
-            user_id,
-            title,
-            num_of_people,
-            city,
-            startDestination,
-            startTime,
-            budget
+            token, user_id, title, num_of_people, city, startDestination, startTime, budget
         )
         client.enqueue(object : Callback<CreatePlanResponse> {
             override fun onResponse(
