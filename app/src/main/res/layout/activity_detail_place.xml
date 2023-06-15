@@ -13,7 +13,7 @@
         <ImageView
             android:id="@+id/iv_place"
             android:layout_width="match_parent"
-            android:layout_height="240dp"
+            android:layout_height="wrap_content"
             android:contentDescription="@string/place_image"
             android:scaleType="centerCrop"
             android:src="@mipmap/ic_launcher_round"
@@ -29,6 +29,7 @@
             android:layout_marginHorizontal="16dp"
             android:layout_marginTop="16dp"
             app:cardBackgroundColor="@color/textThinColor"
+            app:cardElevation="0dp"
             app:cardCornerRadius="8dp"
             app:layout_constraintBottom_toTopOf="@id/tv_name"
             app:layout_constraintStart_toStartOf="parent"
@@ -41,6 +42,7 @@
                 android:layout_margin="8dp"
                 android:text="@string/kategori"
                 android:textStyle="bold"
+                android:textSize="14sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -54,7 +56,7 @@
             android:layout_marginHorizontal="16dp"
             android:layout_marginTop="16dp"
             android:text="@string/nama"
-            android:textSize="22sp"
+            android:textSize="20sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toTopOf="@id/tv_city"
             app:layout_constraintEnd_toEndOf="parent"
@@ -68,7 +70,7 @@
             android:layout_marginHorizontal="16dp"
             android:layout_marginTop="4dp"
             android:text="@string/kota"
-            android:textSize="14sp"
+            android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv_name" />
@@ -81,7 +83,7 @@
             android:layout_marginTop="8dp"
             android:text="@string/rp100_000"
             android:textColor="@color/colorPrimary"
-            android:textSize="14sp"
+            android:textSize="16sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv_city" />
@@ -93,7 +95,7 @@
             android:layout_marginEnd="8dp"
             android:text="@string/orang"
             android:textColor="@color/colorPrimary"
-            android:textSize="11sp"
+            android:textSize="14sp"
             app:layout_constraintBottom_toBottomOf="@id/tv_price"
             app:layout_constraintStart_toEndOf="@id/tv_price" />
 
@@ -110,8 +112,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="16dp"
-            android:text="4.2"
-            android:textSize="14sp"
+            android:text="@string/_4_2"
+            android:textSize="16sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="@id/tv_price"
             app:layout_constraintEnd_toEndOf="parent" />
@@ -123,7 +125,7 @@
             android:layout_margin="16dp"
             android:justificationMode="inter_word"
             android:text="@string/lorem_ipsum"
-            android:textSize="14sp"
+            android:textSize="15sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv_price" />
