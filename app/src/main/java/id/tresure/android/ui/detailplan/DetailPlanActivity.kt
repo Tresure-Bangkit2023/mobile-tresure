@@ -12,6 +12,5 @@ class DetailPlanActivity : AppCompatActivity() {
         binding = ActivityDetailPlanBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-
     }
 }

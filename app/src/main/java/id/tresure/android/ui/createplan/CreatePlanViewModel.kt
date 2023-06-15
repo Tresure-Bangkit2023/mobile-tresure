@@ -13,7 +13,7 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class CreatePlanViewModel (private val application: Application) : ViewModel() {
+class CreatePlanViewModel(private val application: Application) : ViewModel() {
     private val mIsLoading = MutableLiveData<Boolean>()
     val isLoading: LiveData<Boolean> = mIsLoading
 
@@ -27,9 +27,16 @@ class CreatePlanViewModel (private val application: Application) : ViewModel() {
         mIsPlanCreated.value = false
     }
 
-    fun createPlan(title: String, person: Int, city: String, startDestination: String, startTime: Int) {
+    fun createPlan(
+        title: String,
+        person: Int,
+        city: String,
+        startDestination: String,
+        startTime: Int
+    ) {
         showLoading(true)
-        val client = ApiConfig.getApiService().createPlan(title, person, city, startDestination, startTime)
+        val client =
+            ApiConfig.getApiService().createPlan(title, person, city, startDestination, startTime)
         client.enqueue(object : Callback<PlanResponse> {
             override fun onResponse(
                 call: Call<PlanResponse>, response: Response<PlanResponse>
