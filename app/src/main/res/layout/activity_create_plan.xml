@@ -33,7 +33,7 @@
             android:layout_marginHorizontal="16dp"
             android:layout_marginTop="32dp"
             android:text="@string/judul_rencana"
-            android:textSize="14sp"
+            android:textSize="16sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toTopOf="@id/et_title"
             app:layout_constraintEnd_toEndOf="parent"
@@ -47,7 +47,7 @@
             android:layout_marginHorizontal="16dp"
             android:hint="@string/judul_rencana"
             android:inputType="text"
-            android:textSize="14sp"
+            android:textSize="16sp"
             app:layout_constraintBottom_toTopOf="@id/tv_orang"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -60,7 +60,7 @@
             android:layout_marginHorizontal="16dp"
             android:layout_marginTop="16dp"
             android:text="@string/jumlah_orang"
-            android:textSize="14sp"
+            android:textSize="16sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toTopOf="@id/et_person"
             app:layout_constraintEnd_toEndOf="parent"
@@ -74,7 +74,7 @@
             android:layout_marginHorizontal="16dp"
             android:hint="@string/jumlah_orang"
             android:inputType="number"
-            android:textSize="14sp"
+            android:textSize="16sp"
             app:layout_constraintBottom_toTopOf="@id/tv_kota"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -87,7 +87,7 @@
             android:layout_marginHorizontal="16dp"
             android:layout_marginTop="16dp"
             android:text="@string/kota"
-            android:textSize="14sp"
+            android:textSize="16sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toTopOf="@id/sp_city"
             app:layout_constraintEnd_toEndOf="parent"
@@ -111,7 +111,7 @@
             android:layout_marginHorizontal="16dp"
             android:layout_marginTop="16dp"
             android:text="@string/lokasi_awal"
-            android:textSize="14sp"
+            android:textSize="16sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toTopOf="@id/et_start_destination"
             app:layout_constraintEnd_toEndOf="parent"
@@ -125,14 +125,14 @@
             android:layout_marginHorizontal="16dp"
             android:hint="@string/lokasi_awal"
             android:inputType="text"
-            android:textSize="14sp"
+            android:textSize="16sp"
             app:layout_constraintBottom_toTopOf="@id/ll_travel_date"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv_lokasi_awal" />
 
 
-        <LinearLayout
+        <RelativeLayout
             android:id="@+id/ll_travel_date"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -146,24 +146,27 @@
             <ImageButton
                 android:id="@+id/btn_travel_date"
                 style="@style/Base.Widget.AppCompat.ImageButton"
-                android:layout_width="50dp"
-                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
                 android:contentDescription="@string/tanggal_liburan"
                 android:src="@drawable/ic_date_range_24" />
 
             <TextView
                 android:id="@+id/tv_travel_date"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentBottom="true"
                 android:layout_marginHorizontal="16dp"
-                android:layout_marginTop="16dp"
+                android:gravity="center_vertical"
+                android:layout_toEndOf="@+id/btn_travel_date"
                 android:text="@string/tanggal_liburan"
-                android:textSize="14sp"
+                android:textSize="16sp"
                 android:textStyle="bold" />
 
-        </LinearLayout>
+        </RelativeLayout>
 
-        <LinearLayout
+        <RelativeLayout
             android:id="@+id/ll_start_time"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -177,22 +180,23 @@
             <ImageButton
                 android:id="@+id/btn_start_time"
                 style="@style/Base.Widget.AppCompat.ImageButton"
-                android:layout_width="50dp"
-                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
                 android:contentDescription="@string/waktu_mulai"
                 android:src="@drawable/ic_access_time_24" />
 
             <TextView
                 android:id="@+id/tv_start_time"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="16dp"
-                android:layout_marginTop="16dp"
+                android:layout_height="50dp"
+                android:gravity="center_vertical"
+                android:layout_toEndOf="@+id/btn_start_time"
+                android:layout_marginStart="16dp"
                 android:text="@string/waktu_mulai"
-                android:textSize="14sp"
+                android:textSize="16sp"
                 android:textStyle="bold" />
 
-        </LinearLayout>
+        </RelativeLayout>
 
         <TextView
             android:id="@+id/tv_anggaran"
@@ -201,7 +205,7 @@
             android:layout_marginHorizontal="16dp"
             android:layout_marginTop="16dp"
             android:text="@string/anggaran"
-            android:textSize="14sp"
+            android:textSize="16sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toTopOf="@id/et_budget"
             app:layout_constraintEnd_toEndOf="parent"
@@ -215,7 +219,7 @@
             android:layout_marginHorizontal="16dp"
             android:hint="@string/anggaran"
             android:inputType="number"
-            android:textSize="14sp"
+            android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv_anggaran" />
@@ -224,10 +228,9 @@
             android:id="@+id/btn_save_plan"
             android:layout_width="160dp"
             android:layout_height="48dp"
-            android:layout_marginHorizontal="16dp"
-            android:layout_marginVertical="16dp"
+            android:layout_margin="16dp"
             android:text="@string/simpan"
-            android:textSize="14sp"
+            android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/et_budget" />
 
