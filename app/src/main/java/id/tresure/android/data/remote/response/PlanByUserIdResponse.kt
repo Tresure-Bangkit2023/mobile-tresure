@@ -35,7 +35,7 @@ data class PlanByUserIdResponseItem(
 
     @field:SerializedName("start_time") val startTime: String? = null,
 
-//    @field:SerializedName("PlanPlace") val planPlace: List<>? = null,
+    @field:SerializedName("PlanPlace") val planPlace: List<PlanPlaceResponseItem>?,
 
     @field:SerializedName("user_id") val userId: Int? = null,
 
