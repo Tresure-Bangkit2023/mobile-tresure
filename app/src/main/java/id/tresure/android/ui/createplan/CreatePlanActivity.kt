@@ -9,7 +9,6 @@ import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.app.ActivityOptionsCompat
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.ViewModelProvider
 import com.google.android.material.snackbar.Snackbar
@@ -19,12 +18,18 @@ import id.tresure.android.databinding.ActivityCreatePlanBinding
 import id.tresure.android.helper.Helper.Companion.dataStore
 import id.tresure.android.ui.ViewModelFactory
 import id.tresure.android.ui.detailplan.DetailPlanActivity
+import java.text.SimpleDateFormat
+import java.util.Calendar
+import java.util.Locale
 
-class CreatePlanActivity : AppCompatActivity() {
+class CreatePlanActivity : AppCompatActivity(), View.OnClickListener,
+    DatePickerFragment.DialogDateListener, TimePickerFragment.DialogTimeListener {
 
     private lateinit var binding: ActivityCreatePlanBinding
     private lateinit var viewModel: CreatePlanViewModel
     private var isCitySelected = false
+    private var token: String? = null
+    private var userId: Int? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -61,8 +66,7 @@ class CreatePlanActivity : AppCompatActivity() {
                             )
                         ).setTextColor(
                             ContextCompat.getColor(
-                                this@CreatePlanActivity,
-                                R.color.white
+                                this@CreatePlanActivity, R.color.white
                             )
                         ).show()
                 }
@@ -79,13 +83,17 @@ class CreatePlanActivity : AppCompatActivity() {
                             dialog.dismiss()
                             startActivity(
                                 Intent(
-                                    this@CreatePlanActivity,
-                                    DetailPlanActivity::class.java
+                                    this@CreatePlanActivity, DetailPlanActivity::class.java
                                 )
                             )
                             finish()
                         }.show()
                 }
+            }
+
+            getUser().observe(this@CreatePlanActivity) { user ->
+                token = "Bearer ${user.token}"
+                userId = user.userId
             }
         }
     }
@@ -95,11 +103,12 @@ class CreatePlanActivity : AppCompatActivity() {
         val person = binding.etPerson.text.toString()
         val city = binding.spCity.selectedItem.toString()
         val startDestination = binding.etStartDestination.text.toString()
-        val startTime = binding.etStartTime.text.toString()
+        val travelDate = binding.tvTravelDate.text.toString()
+        val startTime = binding.tvStartTime.text.toString()
         val budget = binding.etBudget.text.toString()
 
         binding.btnSavePlan.isEnabled =
-            true && title.isNotEmpty() && true && person.isNotEmpty() && true && city.isNotEmpty() && startDestination.isNotEmpty() && true && startTime.isNotEmpty() && budget.isNotEmpty()
+            true && title.isNotEmpty() && true && person.isNotEmpty() && true && city.isNotEmpty() && startDestination.isNotEmpty() && true && travelDate.isNotEmpty() && true && startTime.isNotEmpty() && budget.isNotEmpty()
     }
 
     private fun setupAction() {
@@ -142,15 +151,11 @@ class CreatePlanActivity : AppCompatActivity() {
 
             spCity.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
                 override fun onItemSelected(
-                    parent: AdapterView<*>?,
-                    view: View?,
-                    position: Int,
-                    id: Long
+                    parent: AdapterView<*>?, view: View?, position: Int, id: Long
                 ) {
                     setButton()
                     val selectedCity = parent?.getItemAtPosition(position)?.toString() ?: ""
                     isCitySelected = !selectedCity.isNullOrEmpty()
-                    // Lakukan operasi lain yang diperlukan dengan selectedCity
                 }
 
                 override fun onNothingSelected(parent: AdapterView<*>?) {
@@ -177,23 +182,9 @@ class CreatePlanActivity : AppCompatActivity() {
                 }
             })
 
-            etStartTime.addTextChangedListener(object : TextWatcher {
-                override fun beforeTextChanged(
-                    s: CharSequence?, start: Int, count: Int, after: Int
-                ) {
-                }
+            btnTravelDate.setOnClickListener(this@CreatePlanActivity)
 
-                override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-                    setButton()
-                }
-
-                override fun afterTextChanged(s: Editable?) {
-                    etStartTime.error = if (etStartTime.text.toString()
-                            .isEmpty()
-                    ) getString(R.string.tidak_boleh_kosong)
-                    else null
-                }
-            })
+            btnStartTime.setOnClickListener(this@CreatePlanActivity)
 
             etBudget.addTextChangedListener(object : TextWatcher {
                 override fun beforeTextChanged(
@@ -213,21 +204,70 @@ class CreatePlanActivity : AppCompatActivity() {
                 }
             })
 
-        }
-        binding.apply {
             btnSavePlan.setOnClickListener {
-                val intent = Intent(this@CreatePlanActivity, DetailPlanActivity::class.java)
-                startActivity(
-                    intent,
-                    ActivityOptionsCompat.makeSceneTransitionAnimation(this@CreatePlanActivity)
-                        .toBundle()
-                )
+                binding.let {
+                    val title = binding.etTitle.text.toString()
+                    val person: Int = binding.etPerson.text.toString().toInt()
+                    val city = binding.spCity.selectedItem.toString()
+                    val startDestination = binding.etStartDestination.text.toString()
+                    val startTime =
+                        binding.tvTravelDate.text.toString() + "T" + binding.tvStartTime.text.toString()
+                    val budget: Float = binding.etBudget.text.toString().toFloat()
+                    viewModel.createPlan(
+                        token as String,
+                        userId as Int,
+                        title,
+                        person,
+                        city,
+                        startDestination,
+                        startTime,
+                        budget
+                    )
+                }
             }
         }
+    }
+
+    override fun onDialogDateSet(tag: String?, year: Int, month: Int, dayOfMonth: Int) {
+
+        val calendar = Calendar.getInstance()
+        calendar.set(year, month, dayOfMonth)
+        val dateFormat = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())
+
+        binding.tvTravelDate.text = dateFormat.format(calendar.time)
+    }
+
+    override fun onClick(v: View) {
+        when (v.id) {
+            R.id.btn_travel_date -> {
+                val datePickerFragment = DatePickerFragment()
+                datePickerFragment.show(supportFragmentManager, DATE_PICKER_TAG)
+            }
+
+            R.id.btn_start_time -> {
+                val timePickerFragmentOne = TimePickerFragment()
+                timePickerFragmentOne.show(supportFragmentManager, TIME_PICKER_TAG)
+            }
+        }
+    }
+
+    override fun onDialogTimeSet(tag: String?, hourOfDay: Int, minute: Int) {
+
+        val calendar = Calendar.getInstance()
+        calendar.set(Calendar.HOUR_OF_DAY, hourOfDay)
+        calendar.set(Calendar.MINUTE, minute)
+
+        val dateFormat = SimpleDateFormat("HH:mm", Locale.getDefault())
+
+        binding.tvStartTime.text = dateFormat.format(calendar.time)
     }
 
     private fun showLoading(isLoading: Boolean) {
         binding.progressBar.visibility = if (isLoading) View.VISIBLE else View.GONE
     }
 
+    companion object {
+        private const val DATE_PICKER_TAG = "DatePicker"
+        private const val TIME_PICKER_TAG = "TimePicker"
+    }
 }
