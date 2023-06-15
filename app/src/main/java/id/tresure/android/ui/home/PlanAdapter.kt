@@ -3,7 +3,6 @@ package id.tresure.android.ui.home
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
 import id.tresure.android.data.remote.response.PlanResponseItem
 import id.tresure.android.databinding.ItemPlaceBinding
 import id.tresure.android.helper.Helper.Companion.currencyFormat
