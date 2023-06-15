@@ -156,8 +156,7 @@ class HomeFragment : Fragment() {
     }
 
     private fun setupAction() {
-        val planLayoutManager =
-            LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL, false)
+        val planLayoutManager = LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL, false)
         val placeLayoutManager =
             LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL, false)
         val artLayoutManager = LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL, false)

@@ -41,7 +41,7 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_other_plan"
             android:layout_width="match_parent"
-            android:layout_height="208dp"
+            android:layout_height="wrap_content"
             android:layout_marginVertical="12dp"
             android:layout_marginHorizontal="16dp"
             android:orientation="horizontal"
