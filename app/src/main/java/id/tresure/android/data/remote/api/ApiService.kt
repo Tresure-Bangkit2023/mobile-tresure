@@ -4,6 +4,7 @@ import id.tresure.android.data.remote.response.ArtResponse
 import id.tresure.android.data.remote.response.CreatePlanResponse
 import id.tresure.android.data.remote.response.LoginResponse
 import id.tresure.android.data.remote.response.PlacesResponse
+import id.tresure.android.data.remote.response.PlanResponse
 import id.tresure.android.data.remote.response.RegisterResponse
 import id.tresure.android.data.remote.response.ThemeParkResponse
 import retrofit2.Call
@@ -44,6 +45,11 @@ interface ApiService {
     fun getThemePark(
         @Header("Authorization") token: String
     ): Call<ThemeParkResponse>
+
+    @GET("plans")
+    fun getAllPlans(
+        @Header("Authorization") token: String
+    ): Call<PlanResponse>
 
     @FormUrlEncoded
     @POST("plans")
