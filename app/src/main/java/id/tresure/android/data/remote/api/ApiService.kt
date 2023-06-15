@@ -3,6 +3,7 @@ package id.tresure.android.data.remote.api
 import id.tresure.android.data.remote.response.ArtResponse
 import id.tresure.android.data.remote.response.LoginResponse
 import id.tresure.android.data.remote.response.PlacesResponse
+import id.tresure.android.data.remote.response.PlanResponse
 import id.tresure.android.data.remote.response.RegisterResponse
 import id.tresure.android.data.remote.response.ThemeParkResponse
 import retrofit2.Call
@@ -43,4 +44,13 @@ interface ApiService {
     fun getThemePark(
         @Header("Authorization") token: String
     ): Call<ThemeParkResponse>
+
+    @POST("plans")
+    fun createPlan(
+        @Field("title") title: String,
+        @Field("num_of_people") num_of_people: Int,
+        @Field("city") city: String,
+        @Field("start_location") start_location: String,
+        @Field("start_time") start_time: Int,
+    ): Call<PlanResponse>
 }

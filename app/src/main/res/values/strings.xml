@@ -38,6 +38,11 @@
     <string name="konfirmasi_kata_sandi">Konfirmasi Kata Sandi</string>
     <string name="kata_sandi">Kata Sandi</string>
     <string name="sudah_punya_akun">Sudah punya akun?</string>
+    <string name="rencanaku">Rencanaku</string>
+    <string name="ubah_kata_sandi">Ubah Kata Sandi</string>
+    <string name="bantuan">Bantuan</string>
+    <string name="tentang">Tentang</string>
+    <string name="keluar">Keluar</string>
     <string name="berhasil">Berhasil</string>
     <string name="pengguna_berhasil_dibuat">Pengguna berhasil dibuat!</string>
     <string name="tidak_boleh_kosong">Tidak boleh kosong</string>
@@ -60,4 +65,6 @@
     <string name="taman_hiburan">Taman Hiburan</string>
     <string name="tempat_ibadah">Tempat Ibadah</string>
     <string name="lainnya">Lainnya</string>
+    <string name="rencana_berhasil_dibuat">Rencana Berhasil Dibuat</string>
+    <string name="rencana_gagal_dibuat">Rencana Gagal Dibuat</string>
 </resources>
