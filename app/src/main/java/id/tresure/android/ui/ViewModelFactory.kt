@@ -35,7 +35,7 @@ class ViewModelFactory(
             }
 
             modelClass.isAssignableFrom(CreatePlanViewModel::class.java) -> {
-                CreatePlanViewModel(application) as T
+                CreatePlanViewModel(pref, application) as T
             }
 
             modelClass.isAssignableFrom(ProfileViewModel::class.java) -> {

@@ -34,7 +34,6 @@ class LoginActivity : AppCompatActivity() {
         initViewModel()
         setupAction()
         setButton()
-
     }
 
     private fun initViewModel() {

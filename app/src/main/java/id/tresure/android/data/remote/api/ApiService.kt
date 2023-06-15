@@ -1,6 +1,7 @@
 package id.tresure.android.data.remote.api
 
 import id.tresure.android.data.remote.response.ArtResponse
+import id.tresure.android.data.remote.response.CreatePlanResponse
 import id.tresure.android.data.remote.response.LoginResponse
 import id.tresure.android.data.remote.response.PlacesResponse
 import id.tresure.android.data.remote.response.PlanResponse
@@ -45,12 +46,21 @@ interface ApiService {
         @Header("Authorization") token: String
     ): Call<ThemeParkResponse>
 
+    @GET("plans")
+    fun getAllPlans(
+        @Header("Authorization") token: String
+    ): Call<PlanResponse>
+
+    @FormUrlEncoded
     @POST("plans")
     fun createPlan(
+        @Header("Authorization") token: String,
+        @Field("user_id") user_id: Int,
         @Field("title") title: String,
         @Field("num_of_people") num_of_people: Int,
         @Field("city") city: String,
         @Field("start_location") start_location: String,
-        @Field("start_time") start_time: Int,
-    ): Call<PlanResponse>
+        @Field("start_time") start_time: String,
+        @Field("budget") budget: Float
+    ): Call<CreatePlanResponse>
 }

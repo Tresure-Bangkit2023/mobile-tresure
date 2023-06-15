@@ -44,6 +44,12 @@ class ProfileFragment : Fragment() {
         val viewModelFactory =
             ViewModelFactory(UserPreference.getInstance(activity.dataStore), activity.application)
         viewModel = ViewModelProvider(activity, viewModelFactory)[ProfileViewModel::class.java]
+
+        viewModel.apply {
+            getUser().observe(viewLifecycleOwner) {
+                binding.tvUsername.text = it.username
+            }
+        }
     }
 
     private fun setupAction() {

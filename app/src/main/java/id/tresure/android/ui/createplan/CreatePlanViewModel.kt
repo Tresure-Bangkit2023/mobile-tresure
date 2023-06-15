@@ -5,15 +5,19 @@ import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.asLiveData
 import id.tresure.android.R
+import id.tresure.android.data.local.User
+import id.tresure.android.data.local.UserPreference
 import id.tresure.android.data.remote.api.ApiConfig
-import id.tresure.android.data.remote.response.PlanResponse
+import id.tresure.android.data.remote.response.CreatePlanResponse
 import id.tresure.android.helper.Event
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class CreatePlanViewModel(private val application: Application) : ViewModel() {
+class CreatePlanViewModel(private val pref: UserPreference, private val application: Application) :
+    ViewModel() {
     private val mIsLoading = MutableLiveData<Boolean>()
     val isLoading: LiveData<Boolean> = mIsLoading
 
@@ -27,19 +31,34 @@ class CreatePlanViewModel(private val application: Application) : ViewModel() {
         mIsPlanCreated.value = false
     }
 
+    fun getUser(): LiveData<User> {
+        return pref.getUser().asLiveData()
+    }
+
     fun createPlan(
+        token: String,
+        user_id: Int,
         title: String,
-        person: Int,
+        num_of_people: Int,
         city: String,
         startDestination: String,
-        startTime: Int
+        startTime: String,
+        budget: Float
     ) {
         showLoading(true)
-        val client =
-            ApiConfig.getApiService().createPlan(title, person, city, startDestination, startTime)
-        client.enqueue(object : Callback<PlanResponse> {
+        val client = ApiConfig.getApiService().createPlan(
+            token,
+            user_id,
+            title,
+            num_of_people,
+            city,
+            startDestination,
+            startTime,
+            budget
+        )
+        client.enqueue(object : Callback<CreatePlanResponse> {
             override fun onResponse(
-                call: Call<PlanResponse>, response: Response<PlanResponse>
+                call: Call<CreatePlanResponse>, response: Response<CreatePlanResponse>
             ) {
                 showLoading(false)
                 if (response.isSuccessful) {
@@ -47,14 +66,15 @@ class CreatePlanViewModel(private val application: Application) : ViewModel() {
                     if (responseBody != null) {
                         mIsPlanCreated.value = true
                     }
+                    Log.d(TAG, "onResponse: ${responseBody.toString()}")
                 } else {
                     mSnackBarText.value =
                         Event(application.getString(R.string.rencana_gagal_dibuat))
-                    Log.e(TAG, "onFailure: ${response.message()}")
+                    Log.e(TAG, "onFailure: ${response.code()}")
                 }
             }
 
-            override fun onFailure(call: Call<PlanResponse>, t: Throwable) {
+            override fun onFailure(call: Call<CreatePlanResponse>, t: Throwable) {
                 showLoading(false)
                 mSnackBarText.value =
                     Event(application.getString(R.string.ada_yang_salah_coba_lagi_nanti))
@@ -68,6 +88,6 @@ class CreatePlanViewModel(private val application: Application) : ViewModel() {
     }
 
     companion object {
-        private const val TAG = "RegisterViewModel"
+        private const val TAG = "CreatePlanViewModel"
     }
 }

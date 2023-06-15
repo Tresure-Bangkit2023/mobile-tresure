@@ -73,7 +73,7 @@
             android:layout_height="48dp"
             android:layout_marginHorizontal="16dp"
             android:hint="@string/jumlah_orang"
-            android:inputType="text"
+            android:inputType="number"
             android:textSize="14sp"
             app:layout_constraintBottom_toTopOf="@id/tv_kota"
             app:layout_constraintEnd_toEndOf="parent"
@@ -126,37 +126,73 @@
             android:hint="@string/lokasi_awal"
             android:inputType="text"
             android:textSize="14sp"
-            app:layout_constraintBottom_toTopOf="@id/tv_waktu_mulai"
+            app:layout_constraintBottom_toTopOf="@id/ll_travel_date"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv_lokasi_awal" />
 
-        <TextView
-            android:id="@+id/tv_waktu_mulai"
+
+        <LinearLayout
+            android:id="@+id/ll_travel_date"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toTopOf="@id/ll_start_time"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/et_start_destination">
+
+            <ImageButton
+                android:id="@+id/btn_travel_date"
+                style="@style/Base.Widget.AppCompat.ImageButton"
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/tanggal_liburan"
+                android:src="@drawable/ic_date_range_24" />
+
+            <TextView
+                android:id="@+id/tv_travel_date"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginTop="16dp"
+                android:text="@string/tanggal_liburan"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_start_time"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="16dp"
-            android:layout_marginTop="16dp"
-            android:text="@string/waktu_mulai"
-            android:textSize="14sp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toTopOf="@id/et_start_time"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/et_start_destination" />
-
-        <EditText
-            android:id="@+id/et_start_time"
-            android:layout_width="match_parent"
-            android:layout_height="48dp"
-            android:layout_marginHorizontal="16dp"
-            android:hint="@string/waktu_mulai"
-            android:inputType="time"
-            android:textSize="14sp"
+            android:orientation="horizontal"
             app:layout_constraintBottom_toTopOf="@id/tv_anggaran"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tv_waktu_mulai" />
+            app:layout_constraintTop_toBottomOf="@id/et_start_destination">
+
+            <ImageButton
+                android:id="@+id/btn_start_time"
+                style="@style/Base.Widget.AppCompat.ImageButton"
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/waktu_mulai"
+                android:src="@drawable/ic_access_time_24" />
+
+            <TextView
+                android:id="@+id/tv_start_time"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginTop="16dp"
+                android:text="@string/waktu_mulai"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
 
         <TextView
             android:id="@+id/tv_anggaran"
@@ -170,7 +206,7 @@
             app:layout_constraintBottom_toTopOf="@id/et_budget"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/et_start_time" />
+            app:layout_constraintTop_toBottomOf="@id/ll_start_time" />
 
         <EditText
             android:id="@+id/et_budget"

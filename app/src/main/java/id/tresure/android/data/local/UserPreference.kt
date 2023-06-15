@@ -3,6 +3,7 @@ package id.tresure.android.data.local
 import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.core.edit
+import androidx.datastore.preferences.core.intPreferencesKey
 import androidx.datastore.preferences.core.stringPreferencesKey
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
@@ -12,13 +13,16 @@ class UserPreference private constructor(private val dataStore: DataStore<Prefer
     fun getUser(): Flow<User> {
         return dataStore.data.map { preferences ->
             User(
-                preferences[USERNAME_KEY] ?: "", preferences[TOKEN_KEY] ?: ""
+                preferences[USERID_KEY] ?: 0,
+                preferences[USERNAME_KEY] ?: "",
+                preferences[TOKEN_KEY] ?: ""
             )
         }
     }
 
     suspend fun saveUser(user: User) {
         dataStore.edit { preferences ->
+            preferences[USERID_KEY] = user.userId
             preferences[USERNAME_KEY] = user.username
             preferences[TOKEN_KEY] = user.token
         }
@@ -26,6 +30,7 @@ class UserPreference private constructor(private val dataStore: DataStore<Prefer
 
     suspend fun deleteUser() {
         dataStore.edit { preferences ->
+            preferences[USERID_KEY] ?: 0
             preferences[USERNAME_KEY] = ""
             preferences[TOKEN_KEY] = ""
         }
@@ -35,6 +40,7 @@ class UserPreference private constructor(private val dataStore: DataStore<Prefer
         @Volatile
         private var INSTANCE: UserPreference? = null
 
+        private val USERID_KEY = intPreferencesKey("user_id")
         private val USERNAME_KEY = stringPreferencesKey("username")
         private val TOKEN_KEY = stringPreferencesKey("token")
 

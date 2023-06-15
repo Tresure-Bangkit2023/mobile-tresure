@@ -14,6 +14,8 @@ import id.tresure.android.data.remote.response.ArtResponse
 import id.tresure.android.data.remote.response.ArtResponseItem
 import id.tresure.android.data.remote.response.PlacesResponse
 import id.tresure.android.data.remote.response.PlacesResponseItem
+import id.tresure.android.data.remote.response.PlanResponse
+import id.tresure.android.data.remote.response.PlanResponseItem
 import id.tresure.android.data.remote.response.ThemeParkResponse
 import id.tresure.android.data.remote.response.ThemeParkResponseItem
 import id.tresure.android.helper.Event
@@ -36,6 +38,9 @@ class HomeViewModel(private val pref: UserPreference, private val application: A
     private val mListArt = MutableLiveData<List<ArtResponseItem>>()
     val listArt: LiveData<List<ArtResponseItem>> = mListArt
 
+    private val mListPlan = MutableLiveData<List<PlanResponseItem>>()
+    val listPlan: LiveData<List<PlanResponseItem>> = mListPlan
+
     private val mSnackBarText = MutableLiveData<Event<String>>()
     val snackBarText: LiveData<Event<String>> = mSnackBarText
 
@@ -45,6 +50,34 @@ class HomeViewModel(private val pref: UserPreference, private val application: A
 
     private fun showLoading(isLoading: Boolean) {
         mIsLoading.value = isLoading
+    }
+
+    fun getAllPlans(token: String) {
+        showLoading(true)
+        val client = ApiConfig.getApiService().getAllPlans(token)
+        client.enqueue(object : Callback<PlanResponse> {
+            override fun onResponse(
+                call: Call<PlanResponse>, response: Response<PlanResponse>
+            ) {
+                showLoading(false)
+                if (response.isSuccessful) {
+                    val responseBody = response.body()
+                    if (responseBody != null) {
+                        mListPlan.value = responseBody.data as List<PlanResponseItem>
+                    }
+                } else {
+                    mSnackBarText.value =
+                        Event(application.getString(R.string.ada_yang_salah_coba_lagi_nanti))
+                    Log.e(TAG, "onFailure: ${response.message()}")
+                }
+            }
+
+            override fun onFailure(call: Call<PlanResponse>, t: Throwable) {
+                showLoading(false)
+                Log.e(TAG, "onFailure: ${t.message.toString()}")
+                mSnackBarText.value = Event(application.getString(R.string.gagal_mengambil_data))
+            }
+        })
     }
 
     fun getAllPlace(token: String) {
