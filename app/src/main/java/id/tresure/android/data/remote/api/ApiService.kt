@@ -58,6 +58,11 @@ interface ApiService {
         @Header("Authorization") token: String, @Path("user_id") userId: Int
     ): Call<PlanByUserIdResponse>
 
+    @GET("users/{user_id}/plan")
+    fun getPlanPlace(
+        @Header("Authorization") token: String, @Path("user_id") userId: Int
+    ): Call<PlanByUserIdResponse>
+
     @FormUrlEncoded
     @POST("plans")
     fun createPlan(
