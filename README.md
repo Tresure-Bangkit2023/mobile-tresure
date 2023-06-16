@@ -1,13 +1,15 @@
-# Mobile Development
+# Tresure: Your Trip Pleasure
 
 ## Description
 
-This project is a repository for developing a mobile application using Kotlin and Android Studio. The application is designed to provide a solution for travel planning for users. By using this application, users can plan their trips according to their budget, find tourist destinations, book accommodations, manage itineraries, and get activity recommendations at each destination.
+This project is a repository for mobile app development using Kotlin and Android Studio. This application is designed to provide solutions in travel planning for users. By using this application, users can plan their trips according to their budget, search for tourist destinations, set itineraries, and get destination recommendations.
 
-## Key Features
+## Main Feature
 
-- Itinerary planning feature that allows users to create structured and flexible travel schedules.
-- Ability to save and share travel plans with friends and family.
+- Manage the travel budget.
+- An itinerary planning feature that allows users to create a structured and flexible itinerary.
+- Activity recommendations in each destination.
+- Save and share travel plans with other users.
 
 ## Technologies Used
 
@@ -16,37 +18,43 @@ This project is a repository for developing a mobile application using Kotlin an
 - Glide
 - Retrofit
 
-## Running the Project
+## How to Run this Project
 
-1. Clone this repository to your local machine:
+1. Clone this repository to local:
+
    ```
    git clone [repository link]
    ```
 2. Open Android Studio and select the "Open an Existing Project" option.
-3. Browse to the directory where you cloned this repository and select the project folder.
-4. Wait for Android Studio to import the project and prepare the dependencies.
-5. Connect an Android device or use an emulator.
-6. Click the Run button (green triangle) to run the application.
+3. Locate the directory where you cloned this repository and select the project folder.
+4. Wait for Android Studio to import the project and prepare dependencies.
+5. Connect Android device or use emulator.
+6. Click the Run button (green) to run the application.
 
-## Contributing
+## Contribution
 
-We are open to contributions from the community. If you would like to contribute to this project, please follow these steps:
+We are very open to contributions from the community. If you wish to contribute to this project, please follow these steps:
 
 1. Fork this repository.
 2. Create a new feature branch:
-   ```
-   git checkout -b feature-name
-   ```
+    ```
+    git checkout -b feature-name
+    ```
 3. Make the necessary changes and commit your changes:
-   ```
-   git commit -m "Description of changes"
-   ```
-4. Push to the branch you created:
-   ```
-   git push origin feature-name
-   ```
-5. Create a pull request to this repository.
+    ```
+    git commit -m "Change description"
+    ```
+4. Push to the branch you have created:
+    ```
+    git push origin feature-name
+    ```
+5. Make a pull request to this repository.
 
-If you have any questions or feedback regarding this project, please contact .
+## Developer Team
 
-Thank you for your interest in our project!
+- Raihan Alif
+- Christy Octaviani Hutapea
+
+If you have any questions or feedback regarding this project, please contact a151dkx4007@bangkit.academy.
+
+Thank you for being interested in our project!
