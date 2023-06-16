@@ -1,17 +1,15 @@
-# Nama Proyek
+# Tresure: Your Trip Pleasure
 
-## Deskripsi
+## Description
 
-Proyek ini adalah repository untuk pengembangan aplikasi mobile menggunakan Kotlin dan Android Studio. Aplikasi ini dirancang untuk memberikan solusi dalam perencanaan perjalanan bagi pengguna. Dengan menggunakan aplikasi ini, pengguna dapat merencanakan perjalanan mereka sesuai dengan anggaran yang dimiliki, mencari destinasi wisata, memesan akomodasi, mengatur itinerari, dan mendapatkan rekomendasi aktivitas di setiap tujuan.
+This project is a repository for mobile app development using Kotlin and Android Studio. This application is designed to provide solutions in travel planning for users. By using this application, users can plan their trips according to their budget, search for tourist destinations, set itineraries, and get destination recommendations.
 
-## Fitur Utama
+## Main Feature
 
-- Mengatur anggaran perjalanan dan menghitung perkiraan biaya untuk transportasi, akomodasi, makanan, dan kegiatan lainnya.
-- Sistem pencarian dan filter untuk menemukan destinasi, akomodasi, dan kegiatan yang sesuai dengan anggaran pengguna.
-- Integrasi dengan layanan pemesanan online untuk memesan tiket pesawat, hotel, dan kegiatan wisata.
-- Fitur perencanaan itinerari yang memungkinkan pengguna membuat jadwal perjalanan yang terstruktur dan fleksibel.
-- Informasi cuaca, ulasan pengguna, dan rekomendasi aktivitas di setiap tujuan.
-- Kemungkinan menyimpan dan berbagi rencana perjalanan dengan teman atau keluarga.
+- Manage the travel budget.
+- An itinerary planning feature that allows users to create a structured and flexible itinerary.
+- Activity recommendations in each destination.
+- Save and share travel plans with other users.
 
 ## Teknologi yang Digunakan
 
@@ -20,44 +18,42 @@ Proyek ini adalah repository untuk pengembangan aplikasi mobile menggunakan Kotl
 - Glide
 - Retrofit
 
-## Cara Menjalankan Proyek
+## How to Run this Project
 
-1. Clone repositori ini ke lokal:
+1. Clone this repository to local:
    ```
    git clone [link repositori]
    ```
-2. Buka Android Studio dan pilih opsi "Open an Existing Project".
-3. Cari lokasi direktori tempat Anda meng-clone repositori ini dan pilih folder proyek.
-4. Tunggu Android Studio mengimpor proyek dan mempersiapkan dependensi.
-5. Sambungkan perangkat Android atau gunakan emulator.
-6. Klik tombol Run (hijau) untuk menjalankan aplikasi.
+2. Open Android Studio and select the "Open an Existing Project" option.
+3. Locate the directory where you cloned this repository and select the project folder.
+4. Wait for Android Studio to import the project and prepare dependencies.
+5. Connect Android device or use emulator.
+6. Click the Run button (green) to run the application.
 
-## Kontribusi
+## Contribution
 
-Kami sangat terbuka terhadap kontribusi dari komunitas. Jika Anda ingin berkontribusi pada proyek ini, silakan ikuti langkah-langkah berikut:
+We are very open to contributions from the community. If you wish to contribute to this project, please follow these steps:
 
-1. Fork repositori ini.
-2. Buat branch fitur baru:
-   ```
-   git checkout -b nama-fitur
-   ```
-3. Lakukan perubahan yang diperlukan dan komit perubahan Anda:
-   ```
-   git commit -m "Deskripsi perubahan"
-   ```
-4. Push ke branch yang telah Anda buat:
-   ```
-   git push origin nama-fitur
-   ```
-5. Buat pull request ke repositori ini.
+1. Fork this repository.
+2. Create a new feature branch:
+    ```
+    git checkout -b feature-name
+    ```
+3. Make the necessary changes and commit your changes:
+    ```
+    git commit -m "Change description"
+    ```
+4. Push to the branch you have created:
+    ```
+    git push origin feature-name
+    ```
+5. Make a pull request to this repository.
 
-## Tim Pengembang
+## Developer Team
 
-- Nama Tim Pengembang 1
-- Nama Tim Pengembang 2
-- Nama Tim Pengembang 3
-- [Tambahkan nama-nama tim pengembang lainnya]
+- Raihan Alif
+- Christy Octaviani Hutapea
 
-Jika Anda memiliki pertanyaan atau masukan terkait proyek ini, silakan hubungi [kontak/email tim pengembang].
+If you have any questions or feedback regarding this project, please contact a151dkx4007@bangkit.academy.
 
-Terima kasih telah tertarik dengan proyek kami!
+Thank you for being interested in our project!
