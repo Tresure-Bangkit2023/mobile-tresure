@@ -17,7 +17,6 @@ import id.tresure.android.data.local.UserPreference
 import id.tresure.android.databinding.ActivityCreatePlanBinding
 import id.tresure.android.helper.Helper.Companion.dataStore
 import id.tresure.android.ui.ViewModelFactory
-import id.tresure.android.ui.detailplace.DetailPlaceActivity
 import id.tresure.android.ui.detailplan.DetailPlanActivity
 import java.text.SimpleDateFormat
 import java.util.Calendar
@@ -224,9 +223,6 @@ class CreatePlanActivity : AppCompatActivity(), View.OnClickListener,
                         startTime,
                         budget
                     )
-                    val intent = Intent(this@CreatePlanActivity, DetailPlaceActivity::class.java)
-                    intent.putExtra(EXTRA_CREATE_PLAN, true)
-                    startActivity(intent)
                 }
             }
         }
