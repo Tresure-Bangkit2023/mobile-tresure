@@ -14,6 +14,7 @@ import id.tresure.android.R
 import id.tresure.android.data.local.UserPreference
 import id.tresure.android.databinding.FragmentProfileBinding
 import id.tresure.android.ui.ViewModelFactory
+import id.tresure.android.ui.landingpage.LandingPageActivity
 import id.tresure.android.ui.login.LoginActivity
 
 class ProfileFragment : Fragment() {
@@ -59,7 +60,7 @@ class ProfileFragment : Fragment() {
                 setMessage(getString(R.string.yakin_ingin_keluar))
                 setPositiveButton("Ya") { _, _ ->
                     viewModel.logout()
-                    val intent = Intent(requireContext(), LoginActivity::class.java)
+                    val intent = Intent(requireContext(), LandingPageActivity::class.java)
                     intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
                     startActivity(intent)
                 }
