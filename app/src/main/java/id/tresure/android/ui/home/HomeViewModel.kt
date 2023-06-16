@@ -12,8 +12,8 @@ import id.tresure.android.data.local.UserPreference
 import id.tresure.android.data.remote.api.ApiConfig
 import id.tresure.android.data.remote.response.ArtResponse
 import id.tresure.android.data.remote.response.ArtResponseItem
-import id.tresure.android.data.remote.response.PlacesResponse
-import id.tresure.android.data.remote.response.PlacesResponseItem
+import id.tresure.android.data.remote.response.PlanRecommendationItem
+import id.tresure.android.data.remote.response.PlanRecommendationResponse
 import id.tresure.android.data.remote.response.PlanResponse
 import id.tresure.android.data.remote.response.PlanResponseItem
 import id.tresure.android.data.remote.response.ThemeParkResponse
@@ -29,8 +29,8 @@ class HomeViewModel(private val pref: UserPreference, private val application: A
     private val mIsLoading = MutableLiveData<Boolean>()
     val isLoading: LiveData<Boolean> = mIsLoading
 
-    private val mListPlace = MutableLiveData<List<PlacesResponseItem>>()
-    val listPlace: LiveData<List<PlacesResponseItem>> = mListPlace
+    private val mListPlace = MutableLiveData<List<PlanRecommendationItem>>()
+    val listPlace: LiveData<List<PlanRecommendationItem>> = mListPlace
 
     private val mListThemePark = MutableLiveData<List<ThemeParkResponseItem>>()
     val listThemePark: LiveData<List<ThemeParkResponseItem>> = mListThemePark
@@ -80,18 +80,19 @@ class HomeViewModel(private val pref: UserPreference, private val application: A
         })
     }
 
-    fun getAllPlace(token: String) {
+    fun getAllPlace(token: String, username: String) {
         showLoading(true)
-        val client = ApiConfig.getApiService().getAllPlaces(token)
-        client.enqueue(object : Callback<PlacesResponse> {
+        val client = ApiConfig.getApiService().getAllPlanRecommendation(token, username)
+        client.enqueue(object : Callback<PlanRecommendationResponse> {
             override fun onResponse(
-                call: Call<PlacesResponse>, response: Response<PlacesResponse>
+                call: Call<PlanRecommendationResponse>,
+                response: Response<PlanRecommendationResponse>
             ) {
                 showLoading(false)
                 if (response.isSuccessful) {
                     val responseBody = response.body()
                     if (responseBody != null) {
-                        mListPlace.value = responseBody.data as List<PlacesResponseItem>
+                        mListPlace.value = responseBody.data as List<PlanRecommendationItem>
                     }
                 } else {
                     mSnackBarText.value =
@@ -100,7 +101,7 @@ class HomeViewModel(private val pref: UserPreference, private val application: A
                 }
             }
 
-            override fun onFailure(call: Call<PlacesResponse>, t: Throwable) {
+            override fun onFailure(call: Call<PlanRecommendationResponse>, t: Throwable) {
                 showLoading(false)
                 Log.e(TAG, "onFailure: ${t.message.toString()}")
                 mSnackBarText.value = Event(application.getString(R.string.gagal_mengambil_data))
