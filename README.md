@@ -23,7 +23,7 @@ This project is a repository for mobile app development using Kotlin and Android
 1. Clone this repository to local:
 
    ```
-   git clone [repository link]
+   git clone https://github.com/Tresure-Bangkit2023/mobile-tresure.git
    ```
 2. Open Android Studio and select the "Open an Existing Project" option.
 3. Locate the directory where you cloned this repository and select the project folder.
