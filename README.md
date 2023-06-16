@@ -11,7 +11,7 @@ This project is a repository for mobile app development using Kotlin and Android
 - Activity recommendations in each destination.
 - Save and share travel plans with other users.
 
-## Teknologi yang Digunakan
+## Technologies Used
 
 - Kotlin
 - Android Studio
@@ -21,8 +21,9 @@ This project is a repository for mobile app development using Kotlin and Android
 ## How to Run this Project
 
 1. Clone this repository to local:
+
    ```
-   git clone [link repositori]
+   git clone [repository link]
    ```
 2. Open Android Studio and select the "Open an Existing Project" option.
 3. Locate the directory where you cloned this repository and select the project folder.
