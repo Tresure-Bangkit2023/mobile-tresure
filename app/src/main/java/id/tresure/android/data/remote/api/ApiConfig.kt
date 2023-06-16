@@ -15,18 +15,14 @@ class ApiConfig {
                 else HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.NONE)
 
             val timeoutSeconds = 30L
-            val client = OkHttpClient.Builder()
-                .addInterceptor(loggingInterceptor)
+            val client = OkHttpClient.Builder().addInterceptor(loggingInterceptor)
                 .connectTimeout(timeoutSeconds, TimeUnit.SECONDS)
                 .readTimeout(timeoutSeconds, TimeUnit.SECONDS)
-                .writeTimeout(timeoutSeconds, TimeUnit.SECONDS)
-                .build()
+                .writeTimeout(timeoutSeconds, TimeUnit.SECONDS).build()
 
-            val retrofit = Retrofit.Builder()
-                .baseUrl("https://tresure-app-v5cbzwlk4q-uc.a.run.app/")
-                .addConverterFactory(GsonConverterFactory.create())
-                .client(client)
-                .build()
+            val retrofit =
+                Retrofit.Builder().baseUrl("https://tresure-app-v5cbzwlk4q-uc.a.run.app/")
+                    .addConverterFactory(GsonConverterFactory.create()).client(client).build()
 
             return retrofit.create(ApiService::class.java)
         }

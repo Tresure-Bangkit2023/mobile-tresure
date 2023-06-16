@@ -16,7 +16,8 @@ class AddPlaceAdapter(private val listPlace: List<DataItem>) :
     class ViewHolder(var binding: ItemPlaceBigBinding) : RecyclerView.ViewHolder(binding.root)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val binding = ItemPlaceBigBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        val binding =
+            ItemPlaceBigBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return ViewHolder(binding)
     }
 

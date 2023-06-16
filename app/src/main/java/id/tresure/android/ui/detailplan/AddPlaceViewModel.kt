@@ -10,10 +10,7 @@ import id.tresure.android.R
 import id.tresure.android.data.local.User
 import id.tresure.android.data.local.UserPreference
 import id.tresure.android.data.remote.api.ApiConfig
-import id.tresure.android.data.remote.response.ArtResponseItem
 import id.tresure.android.data.remote.response.DataItem
-import id.tresure.android.data.remote.response.PlanByUserIdResponse
-import id.tresure.android.data.remote.response.PlanPlaceResponseItem
 import id.tresure.android.data.remote.response.PlanRecommendationByCityResponse
 import id.tresure.android.helper.Event
 import retrofit2.Call
@@ -45,7 +42,8 @@ class AddPlaceViewModel(private val pref: UserPreference, private val applicatio
         val client = ApiConfig.getApiService().getPlanRecommendationByCity(token, username, city)
         client.enqueue(object : Callback<PlanRecommendationByCityResponse> {
             override fun onResponse(
-                call: Call<PlanRecommendationByCityResponse>, response: Response<PlanRecommendationByCityResponse>
+                call: Call<PlanRecommendationByCityResponse>,
+                response: Response<PlanRecommendationByCityResponse>
             ) {
                 showLoading(false)
                 if (response.isSuccessful) {

@@ -5,7 +5,6 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import id.tresure.android.data.remote.response.PlanResponseItem
 import id.tresure.android.databinding.ItemOtherPlanBinding
-import id.tresure.android.databinding.ItemPlaceBinding
 import id.tresure.android.helper.Helper.Companion.currencyFormat
 
 class PlanAdapter(private val listPlace: List<PlanResponseItem>) :
@@ -16,7 +15,8 @@ class PlanAdapter(private val listPlace: List<PlanResponseItem>) :
     class ViewHolder(var binding: ItemOtherPlanBinding) : RecyclerView.ViewHolder(binding.root)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val binding = ItemOtherPlanBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        val binding =
+            ItemOtherPlanBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return ViewHolder(binding)
     }
 
