@@ -57,7 +57,7 @@ class DetailPlanActivity : AppCompatActivity() {
             }
 
             listPlanPlace.observe(this@DetailPlanActivity) { listPlanPlace ->
-                setStoryList(listPlanPlace)
+                setPlanPlaceList(listPlanPlace)
             }
 
             getUser().observe(this@DetailPlanActivity) { user ->
@@ -66,7 +66,7 @@ class DetailPlanActivity : AppCompatActivity() {
         }
     }
 
-    private fun setStoryList(listPlanPlace: List<PlanPlaceResponseItem>?) {
+    private fun setPlanPlaceList(listPlanPlace: List<PlanPlaceResponseItem>?) {
         val adapter = DetailPlanAdapter(listPlanPlace)
         binding.rvDetailPlan.adapter = adapter
     }
