@@ -17,6 +17,7 @@ import id.tresure.android.data.local.UserPreference
 import id.tresure.android.databinding.ActivitySplashBinding
 import id.tresure.android.helper.Helper.Companion.dataStore
 import id.tresure.android.ui.ViewModelFactory
+import id.tresure.android.ui.landingpage.LandingPageActivity
 import id.tresure.android.ui.login.LoginActivity
 
 class SplashActivity : AppCompatActivity() {
@@ -71,7 +72,7 @@ class SplashActivity : AppCompatActivity() {
             val intent = if (isLogin) {
                 Intent(this@SplashActivity, MainActivity::class.java)
             } else {
-                Intent(this@SplashActivity, LoginActivity::class.java)
+                Intent(this@SplashActivity, LandingPageActivity::class.java)
             }
             startActivity(intent)
             finish()
