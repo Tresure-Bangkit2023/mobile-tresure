@@ -60,9 +60,7 @@ class AddPlaceActivity : AppCompatActivity() {
 
             getUser().observe(this@AddPlaceActivity) { user ->
                 viewModel.getPlanRecommendationByCity(
-                    "Bearer ${user.token}",
-                    user.username,
-                    "Jakarta"
+                    "Bearer ${user.token}", user.username, "Jakarta"
                 )
             }
         }

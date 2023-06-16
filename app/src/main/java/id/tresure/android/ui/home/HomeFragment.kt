@@ -15,7 +15,7 @@ import com.google.android.material.snackbar.Snackbar
 import id.tresure.android.R
 import id.tresure.android.data.local.UserPreference
 import id.tresure.android.data.remote.response.ArtResponseItem
-import id.tresure.android.data.remote.response.PlacesResponseItem
+import id.tresure.android.data.remote.response.PlanRecommendationItem
 import id.tresure.android.data.remote.response.PlanResponseItem
 import id.tresure.android.data.remote.response.ThemeParkResponseItem
 import id.tresure.android.databinding.FragmentHomeBinding
@@ -88,7 +88,7 @@ class HomeFragment : Fragment() {
 
             getUser().observe(viewLifecycleOwner) { user ->
                 viewModel.getAllPlans("Bearer ${user.token}")
-                viewModel.getAllPlace("Bearer ${user.token}")
+                viewModel.getAllPlace("Bearer ${user.token}", user.username)
                 viewModel.getArt("Bearer ${user.token}")
                 viewModel.getThemePark("Bearer ${user.token}")
             }
@@ -110,10 +110,10 @@ class HomeFragment : Fragment() {
         binding.rvOtherPlan.adapter = adapter
     }
 
-    private fun setPlaceList(listPlace: List<PlacesResponseItem>) {
+    private fun setPlaceList(listPlace: List<PlanRecommendationItem>) {
         val adapter = PlaceAdapter(listPlace)
         adapter.setOnItemClickCallback(object : PlaceAdapter.OnItemClickCallback {
-            override fun onItemClicked(data: PlacesResponseItem) {
+            override fun onItemClicked(data: PlanRecommendationItem) {
                 activity.let {
                     val intent = Intent(it, DetailPlaceActivity::class.java)
                     intent.putExtra(EXTRA_PLACE, data)
