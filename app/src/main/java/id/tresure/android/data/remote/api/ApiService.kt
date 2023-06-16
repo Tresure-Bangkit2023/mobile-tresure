@@ -3,8 +3,9 @@ package id.tresure.android.data.remote.api
 import id.tresure.android.data.remote.response.ArtResponse
 import id.tresure.android.data.remote.response.CreatePlanResponse
 import id.tresure.android.data.remote.response.LoginResponse
-import id.tresure.android.data.remote.response.PlacesResponse
 import id.tresure.android.data.remote.response.PlanByUserIdResponse
+import id.tresure.android.data.remote.response.PlanRecommendationByCityResponse
+import id.tresure.android.data.remote.response.PlanRecommendationResponse
 import id.tresure.android.data.remote.response.PlanResponse
 import id.tresure.android.data.remote.response.RegisterResponse
 import id.tresure.android.data.remote.response.ThemeParkResponse
@@ -33,11 +34,6 @@ interface ApiService {
         @Field("username") username: String, @Field("password") password: String
     ): Call<LoginResponse>
 
-    @GET("places")
-    fun getAllPlaces(
-        @Header("Authorization") token: String
-    ): Call<PlacesResponse>
-
     @GET("places/search?category=budaya")
     fun getArt(
         @Header("Authorization") token: String
@@ -58,10 +54,20 @@ interface ApiService {
         @Header("Authorization") token: String, @Path("user_id") userId: Int
     ): Call<PlanByUserIdResponse>
 
-    @GET("users/{user_id}/plan")
-    fun getPlanPlace(
-        @Header("Authorization") token: String, @Path("user_id") userId: Int
-    ): Call<PlanByUserIdResponse>
+    @FormUrlEncoded
+    @POST("users/predict")
+    fun getPlanRecommendationByCity(
+        @Header("Authorization") token: String,
+        @Field("username") username: String,
+        @Field("location") location: String
+    ): Call<PlanRecommendationByCityResponse>
+
+    @FormUrlEncoded
+    @POST("users/predict")
+    fun getAllPlanRecommendation(
+        @Header("Authorization") token: String,
+        @Field("username") username: String,
+    ): Call<PlanRecommendationResponse>
 
     @FormUrlEncoded
     @POST("plans")

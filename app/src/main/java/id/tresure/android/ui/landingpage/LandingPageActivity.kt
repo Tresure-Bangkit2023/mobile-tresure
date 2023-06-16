@@ -1,8 +1,8 @@
 package id.tresure.android.ui.landingpage
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import id.tresure.android.databinding.ActivityLandingPageBinding
 import id.tresure.android.ui.login.LoginActivity
 import id.tresure.android.ui.register.RegisterActivity

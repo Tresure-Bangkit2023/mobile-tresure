@@ -4,11 +4,11 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import id.tresure.android.data.remote.response.PlacesResponseItem
+import id.tresure.android.data.remote.response.PlanRecommendationItem
 import id.tresure.android.databinding.ItemPlaceBinding
 import id.tresure.android.helper.Helper.Companion.currencyFormat
 
-class PlaceAdapter(private val listPlace: List<PlacesResponseItem>) :
+class PlaceAdapter(private val listPlace: List<PlanRecommendationItem>) :
     RecyclerView.Adapter<PlaceAdapter.ViewHolder>() {
 
     private lateinit var onItemClickCallback: OnItemClickCallback
@@ -38,7 +38,7 @@ class PlaceAdapter(private val listPlace: List<PlacesResponseItem>) :
     }
 
     interface OnItemClickCallback {
-        fun onItemClicked(data: PlacesResponseItem)
+        fun onItemClicked(data: PlanRecommendationItem)
     }
 
     fun setOnItemClickCallback(onItemClickCallback: OnItemClickCallback) {

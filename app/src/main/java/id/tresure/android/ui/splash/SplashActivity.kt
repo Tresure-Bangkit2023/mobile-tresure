@@ -18,7 +18,6 @@ import id.tresure.android.databinding.ActivitySplashBinding
 import id.tresure.android.helper.Helper.Companion.dataStore
 import id.tresure.android.ui.ViewModelFactory
 import id.tresure.android.ui.landingpage.LandingPageActivity
-import id.tresure.android.ui.login.LoginActivity
 
 class SplashActivity : AppCompatActivity() {
     private lateinit var binding: ActivitySplashBinding

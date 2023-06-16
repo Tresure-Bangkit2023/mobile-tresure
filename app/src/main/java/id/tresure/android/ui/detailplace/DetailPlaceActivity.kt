@@ -7,6 +7,7 @@ import com.bumptech.glide.Glide
 import id.tresure.android.R
 import id.tresure.android.data.remote.response.ArtResponseItem
 import id.tresure.android.data.remote.response.PlacesResponseItem
+import id.tresure.android.data.remote.response.PlanRecommendationItem
 import id.tresure.android.data.remote.response.ThemeParkResponseItem
 import id.tresure.android.databinding.ActivityDetailPlaceBinding
 import id.tresure.android.helper.Helper.Companion.currencyFormat
@@ -30,7 +31,7 @@ class DetailPlaceActivity : AppCompatActivity() {
             if (intent.getParcelableExtra(
                     EXTRA_THEME_PARK, ThemeParkResponseItem::class.java
                 ) != null && intent.getParcelableExtra(
-                    EXTRA_PLACE, PlacesResponseItem::class.java
+                    EXTRA_PLACE, PlanRecommendationItem::class.java
                 ) == null && intent.getParcelableExtra(
                     EXTRA_ART, ArtResponseItem::class.java
                 ) == null
@@ -64,23 +65,25 @@ class DetailPlaceActivity : AppCompatActivity() {
             } else if (intent.getParcelableExtra(
                     EXTRA_THEME_PARK, ThemeParkResponseItem::class.java
                 ) == null && intent.getParcelableExtra(
-                    EXTRA_PLACE, PlacesResponseItem::class.java
+                    EXTRA_PLACE, PlanRecommendationItem::class.java
                 ) != null && intent.getParcelableExtra(
                     EXTRA_ART, ArtResponseItem::class.java
                 ) == null
             ) {
                 binding.apply {
-                    tvName.text = intent.getParcelableExtra<PlacesResponseItem>(EXTRA_PLACE)?.name
+                    tvName.text =
+                        intent.getParcelableExtra<PlanRecommendationItem>(EXTRA_PLACE)?.name
                     tvDescription.text =
-                        intent.getParcelableExtra<PlacesResponseItem>(EXTRA_PLACE)?.description
+                        intent.getParcelableExtra<PlanRecommendationItem>(EXTRA_PLACE)?.description
                     tvPrice.text =
-                        intent.getParcelableExtra<PlacesResponseItem>(EXTRA_PLACE)?.price?.currencyFormat()
+                        intent.getParcelableExtra<PlanRecommendationItem>(EXTRA_PLACE)?.price?.currencyFormat()
                             ?: "Rp. 0"
-                    tvCity.text = intent.getParcelableExtra<PlacesResponseItem>(EXTRA_PLACE)?.city
+                    tvCity.text =
+                        intent.getParcelableExtra<PlanRecommendationItem>(EXTRA_PLACE)?.city
                     tvRating.text =
-                        intent.getParcelableExtra<PlacesResponseItem>(EXTRA_PLACE)?.rating.toString()
+                        intent.getParcelableExtra<PlanRecommendationItem>(EXTRA_PLACE)?.rating.toString()
                     tvCategory.text =
-                        when (intent.getParcelableExtra<PlacesResponseItem>(EXTRA_PLACE)?.categoryId) {
+                        when (intent.getParcelableExtra<PlanRecommendationItem>(EXTRA_PLACE)?.categoryId) {
                             1 -> getString(R.string.bahari)
                             2 -> getString(R.string.budaya)
                             3 -> getString(R.string.cagar_alam)
@@ -91,12 +94,12 @@ class DetailPlaceActivity : AppCompatActivity() {
                         }
                 }
                 Glide.with(this)
-                    .load(intent.getParcelableExtra<PlacesResponseItem>(EXTRA_PLACE)?.image)
+                    .load(intent.getParcelableExtra<PlanRecommendationItem>(EXTRA_PLACE)?.image)
                     .into(binding.ivPlace)
             } else if (intent.getParcelableExtra(
                     EXTRA_THEME_PARK, ThemeParkResponseItem::class.java
                 ) == null && intent.getParcelableExtra(
-                    EXTRA_PLACE, PlacesResponseItem::class.java
+                    EXTRA_PLACE, PlanRecommendationItem::class.java
                 ) == null && intent.getParcelableExtra(
                     EXTRA_ART, ArtResponseItem::class.java
                 ) != null
@@ -163,17 +166,19 @@ class DetailPlaceActivity : AppCompatActivity() {
                 ) != null && intent.getParcelableExtra<ArtResponseItem>(EXTRA_ART) == null
             ) {
                 binding.apply {
-                    tvName.text = intent.getParcelableExtra<PlacesResponseItem>(EXTRA_PLACE)?.name
+                    tvName.text =
+                        intent.getParcelableExtra<PlanRecommendationItem>(EXTRA_PLACE)?.name
                     tvDescription.text =
-                        intent.getParcelableExtra<PlacesResponseItem>(EXTRA_PLACE)?.description
+                        intent.getParcelableExtra<PlanRecommendationItem>(EXTRA_PLACE)?.description
                     tvPrice.text =
-                        intent.getParcelableExtra<PlacesResponseItem>(EXTRA_PLACE)?.price?.currencyFormat()
+                        intent.getParcelableExtra<PlanRecommendationItem>(EXTRA_PLACE)?.price?.currencyFormat()
                             ?: "Rp. 0"
-                    tvCity.text = intent.getParcelableExtra<PlacesResponseItem>(EXTRA_PLACE)?.city
+                    tvCity.text =
+                        intent.getParcelableExtra<PlanRecommendationItem>(EXTRA_PLACE)?.city
                     tvRating.text =
-                        intent.getParcelableExtra<PlacesResponseItem>(EXTRA_PLACE)?.rating.toString()
+                        intent.getParcelableExtra<PlanRecommendationItem>(EXTRA_PLACE)?.rating.toString()
                     tvCategory.text =
-                        when (intent.getParcelableExtra<PlacesResponseItem>(EXTRA_PLACE)?.categoryId) {
+                        when (intent.getParcelableExtra<PlanRecommendationItem>(EXTRA_PLACE)?.categoryId) {
                             1 -> getString(R.string.bahari)
                             2 -> getString(R.string.budaya)
                             3 -> getString(R.string.cagar_alam)
@@ -184,7 +189,7 @@ class DetailPlaceActivity : AppCompatActivity() {
                         }
                 }
                 Glide.with(this)
-                    .load(intent.getParcelableExtra<PlacesResponseItem>(EXTRA_PLACE)?.image)
+                    .load(intent.getParcelableExtra<PlanRecommendationItem>(EXTRA_PLACE)?.image)
                     .into(binding.ivPlace)
             } else if (intent.getParcelableExtra<ThemeParkResponseItem>(EXTRA_THEME_PARK) == null && intent.getParcelableExtra<PlacesResponseItem>(
                     EXTRA_PLACE

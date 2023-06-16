@@ -15,7 +15,6 @@ import id.tresure.android.data.local.UserPreference
 import id.tresure.android.databinding.FragmentProfileBinding
 import id.tresure.android.ui.ViewModelFactory
 import id.tresure.android.ui.landingpage.LandingPageActivity
-import id.tresure.android.ui.login.LoginActivity
 
 class ProfileFragment : Fragment() {
 

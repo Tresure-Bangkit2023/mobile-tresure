@@ -10,21 +10,21 @@ import id.tresure.android.R
 import id.tresure.android.data.local.User
 import id.tresure.android.data.local.UserPreference
 import id.tresure.android.data.remote.api.ApiConfig
-import id.tresure.android.data.remote.response.PlanByUserIdResponse
-import id.tresure.android.data.remote.response.PlanPlaceResponseItem
+import id.tresure.android.data.remote.response.DataItem
+import id.tresure.android.data.remote.response.PlanRecommendationByCityResponse
 import id.tresure.android.helper.Event
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class DetailPlanViewModel(private val pref: UserPreference, private val application: Application) :
+class AddPlaceViewModel(private val pref: UserPreference, private val application: Application) :
     ViewModel() {
 
     private val mIsLoading = MutableLiveData<Boolean>()
     val isLoading: LiveData<Boolean> = mIsLoading
 
-    private val mListPlanPlace = MutableLiveData<List<PlanPlaceResponseItem>?>()
-    val listPlanPlace: LiveData<List<PlanPlaceResponseItem>?> = mListPlanPlace
+    private val mListPlanRecommendationByCity = MutableLiveData<List<DataItem>?>()
+    val listPlanRecommendationByCity: LiveData<List<DataItem>?> = mListPlanRecommendationByCity
 
     private val mSnackBarText = MutableLiveData<Event<String>>()
     val snackBarText: LiveData<Event<String>> = mSnackBarText
@@ -37,30 +37,28 @@ class DetailPlanViewModel(private val pref: UserPreference, private val applicat
         mIsLoading.value = isLoading
     }
 
-    fun getPlanPlace(token: String, userId: Int) {
+    fun getPlanRecommendationByCity(token: String, username: String, city: String) {
         showLoading(true)
-        val client = ApiConfig.getApiService().getPlanByUserId(token, userId)
-        client.enqueue(object : Callback<PlanByUserIdResponse> {
+        val client = ApiConfig.getApiService().getPlanRecommendationByCity(token, username, city)
+        client.enqueue(object : Callback<PlanRecommendationByCityResponse> {
             override fun onResponse(
-                call: Call<PlanByUserIdResponse>, response: Response<PlanByUserIdResponse>
+                call: Call<PlanRecommendationByCityResponse>,
+                response: Response<PlanRecommendationByCityResponse>
             ) {
                 showLoading(false)
                 if (response.isSuccessful) {
                     val responseBody = response.body()
                     if (responseBody != null) {
-                        val planByUserIdResponseItems = responseBody.data?.plan
-                        val planPlaceResponseItems =
-                            planByUserIdResponseItems?.flatMap { it.planPlace ?: emptyList() }
-                        mListPlanPlace.value = planPlaceResponseItems
+                        mListPlanRecommendationByCity.value = responseBody.data as List<DataItem>
                     }
                 } else {
                     mSnackBarText.value =
                         Event(application.getString(R.string.ada_yang_salah_coba_lagi_nanti))
-                    Log.e(TAG, "onFailure: ${response.message()}")
+                    Log.e(TAG, "onFailure: ${response.body()}")
                 }
             }
 
-            override fun onFailure(call: Call<PlanByUserIdResponse>, t: Throwable) {
+            override fun onFailure(call: Call<PlanRecommendationByCityResponse>, t: Throwable) {
                 showLoading(false)
                 Log.e(TAG, "onFailure: ${t.message.toString()}")
                 mSnackBarText.value = Event(application.getString(R.string.gagal_mengambil_data))
