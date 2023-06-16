@@ -1,63 +1,52 @@
-# Nama Proyek
+# Mobile Development
 
-## Deskripsi
+## Description
 
-Proyek ini adalah repository untuk pengembangan aplikasi mobile menggunakan Kotlin dan Android Studio. Aplikasi ini dirancang untuk memberikan solusi dalam perencanaan perjalanan bagi pengguna. Dengan menggunakan aplikasi ini, pengguna dapat merencanakan perjalanan mereka sesuai dengan anggaran yang dimiliki, mencari destinasi wisata, memesan akomodasi, mengatur itinerari, dan mendapatkan rekomendasi aktivitas di setiap tujuan.
+This project is a repository for developing a mobile application using Kotlin and Android Studio. The application is designed to provide a solution for travel planning for users. By using this application, users can plan their trips according to their budget, find tourist destinations, book accommodations, manage itineraries, and get activity recommendations at each destination.
 
-## Fitur Utama
+## Key Features
 
-- Mengatur anggaran perjalanan dan menghitung perkiraan biaya untuk transportasi, akomodasi, makanan, dan kegiatan lainnya.
-- Sistem pencarian dan filter untuk menemukan destinasi, akomodasi, dan kegiatan yang sesuai dengan anggaran pengguna.
-- Integrasi dengan layanan pemesanan online untuk memesan tiket pesawat, hotel, dan kegiatan wisata.
-- Fitur perencanaan itinerari yang memungkinkan pengguna membuat jadwal perjalanan yang terstruktur dan fleksibel.
-- Informasi cuaca, ulasan pengguna, dan rekomendasi aktivitas di setiap tujuan.
-- Kemungkinan menyimpan dan berbagi rencana perjalanan dengan teman atau keluarga.
+- Itinerary planning feature that allows users to create structured and flexible travel schedules.
+- Ability to save and share travel plans with friends and family.
 
-## Teknologi yang Digunakan
+## Technologies Used
 
 - Kotlin
 - Android Studio
 - Glide
 - Retrofit
 
-## Cara Menjalankan Proyek
+## Running the Project
 
-1. Clone repositori ini ke lokal:
+1. Clone this repository to your local machine:
    ```
-   git clone [link repositori]
+   git clone [repository link]
    ```
-2. Buka Android Studio dan pilih opsi "Open an Existing Project".
-3. Cari lokasi direktori tempat Anda meng-clone repositori ini dan pilih folder proyek.
-4. Tunggu Android Studio mengimpor proyek dan mempersiapkan dependensi.
-5. Sambungkan perangkat Android atau gunakan emulator.
-6. Klik tombol Run (hijau) untuk menjalankan aplikasi.
+2. Open Android Studio and select the "Open an Existing Project" option.
+3. Browse to the directory where you cloned this repository and select the project folder.
+4. Wait for Android Studio to import the project and prepare the dependencies.
+5. Connect an Android device or use an emulator.
+6. Click the Run button (green triangle) to run the application.
 
-## Kontribusi
+## Contributing
 
-Kami sangat terbuka terhadap kontribusi dari komunitas. Jika Anda ingin berkontribusi pada proyek ini, silakan ikuti langkah-langkah berikut:
+We are open to contributions from the community. If you would like to contribute to this project, please follow these steps:
 
-1. Fork repositori ini.
-2. Buat branch fitur baru:
+1. Fork this repository.
+2. Create a new feature branch:
    ```
-   git checkout -b nama-fitur
+   git checkout -b feature-name
    ```
-3. Lakukan perubahan yang diperlukan dan komit perubahan Anda:
+3. Make the necessary changes and commit your changes:
    ```
-   git commit -m "Deskripsi perubahan"
+   git commit -m "Description of changes"
    ```
-4. Push ke branch yang telah Anda buat:
+4. Push to the branch you created:
    ```
-   git push origin nama-fitur
+   git push origin feature-name
    ```
-5. Buat pull request ke repositori ini.
+5. Create a pull request to this repository.
 
-## Tim Pengembang
+If you have any questions or feedback regarding this project, please contact .
 
-- Nama Tim Pengembang 1
-- Nama Tim Pengembang 2
-- Nama Tim Pengembang 3
-- [Tambahkan nama-nama tim pengembang lainnya]
-
-Jika Anda memiliki pertanyaan atau masukan terkait proyek ini, silakan hubungi [kontak/email tim pengembang].
-
-Terima kasih telah tertarik dengan proyek kami!
+Thank you for your interest in our project!
